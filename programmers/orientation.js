@@ -1,7 +1,3 @@
-
-for(let i=0; i<10; i++) {
-    console.log(i)
-  }
   
   let answer = 0;
   let current = 1;
