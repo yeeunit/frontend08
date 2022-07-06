@@ -5,26 +5,29 @@
 // 19~23이면 "날씨가 좋네요"
 // 24이상이면 "조금 덥습니다"
 
-
-
 function temperature(num){
-	if(num <= 30 && num >= 24) {
-    	console.log("조금 덥네요")
+	if(num <= 30 && num > 24) {
+      return "조금 덥네요"
 	}
-  else if (num <= 23 && num >= 20){
-      console.log("날씨가 좋네요")
-  }
-  else if (num >= 19 && num <= 10){
-      console.log("조금 춥네요 ")
-} 
-else {
-      console.log("날씨가 이상해요")
+    else if (num <= 24 && num > 18){
+      return "날씨가 좋네요"
+    }
+    else if (num <= 18 && num > 10){
+      return "조금 춥네요 "
+    } 
+    else {
+      return "날씨가 이상해요"
 	}
 }
 
+// 정답코드
 
-temperature(0)
-temperature(13)
-temperature(22)
-temperature(27)
-temperature(50)
+// function temperature(num){
+// 	if(num >= 24){
+//     return '조금 덥습니다'
+//   } else if(num >= 19 && num <= 23){
+//     return '날씨가 좋네요'
+//   } else if(num <=18){
+//     return '조금 춥네요'
+//   }
+// }

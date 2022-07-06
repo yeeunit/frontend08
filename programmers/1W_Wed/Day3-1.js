@@ -7,14 +7,24 @@
 
 function boolean(input1, input2) {
 	if(input1 === false && input2 === false) {
-    console.log("false")
+    return "false"
   } else {
-    console.log("true")
+    return "true"
   }
 }
 
-boolean(false,false)
-boolean(false,true)
-boolean(true,true)
+// boolean(false,false)
+// boolean(false,true)
+// boolean(true,true)
 
 
+// 정답코드
+
+// function boolean(input1, input2) {
+// 	if(input1 === true || input2 === true ) {
+//     return 'true'
+//   } else if(input1 === false &&
+//            input2 === false){
+//     return 'false'
+//   }
+// }

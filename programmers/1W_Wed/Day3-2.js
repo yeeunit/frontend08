@@ -4,16 +4,29 @@
 
 function evenOdd(num) {
 	if(num === 0) {
-    console.log("Zero")
+    return "Zero"
   } else if(num%2 === 1) {
-    console.log("홀수")
+    return "홀수"
 } else{
-  console.log("짝수")
+  return "짝수"
 	}
 }
 
 evenOdd(0)
 evenOdd(1)
 evenOdd(100)
+
+
+// 정답코드
+
+// function evenOdd(num) {
+// 	if(num === 0) {
+//     return "Zero"
+//   } else if(num%2 === 0) {
+//     return "Even"
+//   } else if(num%2!==0){
+//     return "Odd"
+//   }
+// }
 
 
