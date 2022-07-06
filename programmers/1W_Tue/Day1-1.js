@@ -2,14 +2,37 @@
 //<배열>
 //003. 주어진 변수 fruits에 "사과", "바나나", "파인애플"을 담아주세요.
 
-let fruits;
-
+const fruits = []
 fruits = ["사과", "바나나", "파인애플"]
+
+// (정답코드) 
+// const fruits = [] 
+
+// // frutis.push("사과")
+// // frutis.push("바나나")
+// // frutis.push("파인애플")
+
+// fruits[0] = "사과"
+// fruits[1] = "바나나"
+// fruits[2] = "파인애플"
+
+// // index 보다 push를 많이 사용함 
+// console.log(fruits)
 
 
 //004. 주어진 fruits 배열에서 마지막 요소를 꺼내 newFruits에 넣어주세요.
 
+
+// fruits = ["사과", "바나나", "파인애플"]
+
 newFruits = fruits.pop(fruits.length)
+
+// (정답코드)
+// const fruits = ["사과", "바나나", "파인애플"]
+// const newFruits = []
+// newFruits.push(fruits[fruits.length-1])
+// console.log(newFruits)
+
 
 
 //005. 학생들의 이름이 담긴 students 배열이 있습니다.

@@ -1,5 +1,23 @@
 //<객체>
 
+// const obj = {
+// 	'name': "철수",
+// 	'age': 12,
+//   'school' : {'name': "다람쥐초등학교",}
+// }
+
+// const key = 'name'
+
+// obj.name
+// obj['name']
+// obj[key]
+// obj.school.name
+// obj['school']['name']
+
+// obj.dog="똘이"
+
+// delete obj.school.name
+
 //008. 주어진 student 객체에 'name'이라는 키를 만들고, "철수"를 할당하세요.
 
 
