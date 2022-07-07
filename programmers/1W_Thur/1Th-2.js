@@ -16,3 +16,16 @@ function countLetter(str) {
 
 console.log(countLetter("apple"))
 console.log(countLetter("I am from Korea"))
+
+
+//function countLetter(str) {
+// str = str.toLowerCase() 
+// 전체를 소문자로 변환해서 원래 값에 할당하기 이를통해 아래 대문자 or 넣지 않아도됨
+// let answer = 0
+// for (let i=0; i<str.length; i++){
+// if(str[i]==='a' || str[i]==='A') answer++
+// }   
+// return answer
+// }
+  
+//   countLetter("I am from Korea")

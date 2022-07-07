@@ -15,3 +15,14 @@ function sum(num) {
 
 //결과 확인
   console.log(sum(10))
+
+// 정답코드 
+// function sum(num){
+//   let answer = 0
+// 	
+//   for (let i=1; i<=num; i++){
+// 	   answer += i
+// 	 }
+//  return answer
+//    }
+  

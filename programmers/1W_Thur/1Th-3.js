@@ -13,3 +13,13 @@ function makeNumber(num) {
     
 }
 
+// 정답코드
+function makeNumber(num){
+	let answer = ''
+	for(let i=1; i<num; i++){
+		answer += i
+  	if(i!==num) answer += '-'
+}
+return answer
+}
+

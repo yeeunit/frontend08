@@ -14,6 +14,18 @@ function makeOdd(num) {
 	  } 
 	  return str;
 	}
-	
 
-	makeOdd(8) // '1357'
+// 정답코드
+
+	function makeOdd(num){
+  
+		let answer = ''
+		for(let i=1; i<=num; i++){
+		  if(i%2===1)
+			answer += i
+		  } 
+		return answer
+	  }
+	
+	  
+	  makeOdd(4)
