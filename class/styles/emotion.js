@@ -9,3 +9,4 @@ export const EmailInput = styled.input`
     height: 150px;
 
 `
+
