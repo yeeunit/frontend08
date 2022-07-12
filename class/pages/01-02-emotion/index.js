@@ -1,4 +1,4 @@
-import{ Wrapper, EmailInput } from '../../styles/emotion'
+import{ Wrapper, EmailInput } from '../../styles/emotionn'
 
 export default function EmotionPage(){
 
