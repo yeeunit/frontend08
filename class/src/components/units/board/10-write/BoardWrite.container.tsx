@@ -1,9 +1,10 @@
 import { useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useState } from 'react'
-import { IMutation } from '../../../../commons/types/generated/types'
+import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs } from '../../../../commons/types/generated/types'
 import BoardWriteUI from './BoardWrite.presenter'
 import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
+import { IBoardWriteProps, IMyVariables } from './BoardWrite.types'
 
 //edit 에서 프롭스 받음
 //data 형식은 백엔드에서 알수있음 (일단 any로 설정)
@@ -16,14 +17,14 @@ import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
 
 export default function BoardWrite(props: IBoardWriteProps){
     const router = useRouter()
-    const [mycolor, setMycolor] = useState<string>("철수")
+    const [mycolor, setMycolor] = useState(false)
     // 스테이트 명시 방법은 꺾쇠안에
 
     const [writer, setWriter] = useState("") // a
     const [title, setTitle] = useState("") // a
     const [contents, setContents] = useState("") // a
-    const [createBoard] = useMutation<Pick<IMutation, "createBoard">, IMutationCreateBoardeArgs>(CREATE_BOARD)
-    const [updateBoard] = useMutation<Pick<IMutation, "updateBoard">,IMutationUpadateBoardeArgs>(UPDATE_BOARD)
+    const [createBoard] = useMutation<Pick<IMutation, "createBoard">, IMutationCreateBoardArgs>(CREATE_BOARD)
+    const [updateBoard] = useMutation<Pick<IMutation, "updateBoard">,IMutationUpdateBoardArgs>(UPDATE_BOARD)
 
     const onClickCreate = async () => {
         const result = await createBoard({
@@ -34,7 +35,7 @@ export default function BoardWrite(props: IBoardWriteProps){
             }
         })
         console.log(result)
-        console.log(result.data?.createBoard.message?)
+        console.log(result.data?.createBoard?.message)
         router.push(`/10-01-typescript-boards/${result.data.createBoard.number}`)
     }
 

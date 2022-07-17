@@ -1,9 +1,9 @@
-import { IntrospectionQuery } from 'graphql'
+import { IQuery } from '../../../../commons/types/generated/types'
 import { ChangeEvent } from 'react'
 
 export interface IBoardWriteProps {
     isEdit : boolean
-    data?: Pick<IntrospectionQuery,"fetchBoard"> // 물음표를 붙이면 데이터 줘도되고 없으면 안줘도됨 
+    data?: Pick<IQuery,"fetchBoard"> // 물음표를 붙이면 데이터 줘도되고 없으면 안줘도됨 
 }
 
 export interface IMyVariables {
@@ -24,7 +24,7 @@ export interface IBoardWriteUIProps {
     mycolor: boolean
     isEdit: boolean
 
-    data: <Pick<IQuery,"fetchBoard">,IQ
+    data: Pick<IQuery,"fetchBoard">
      //any 코드제너레이트에ㅓ서 추후 데이터타입 확인 가능
 }
 
