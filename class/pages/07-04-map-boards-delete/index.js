@@ -26,7 +26,7 @@ const DELETE_BOARD = gql`
 const Row = styled.div`
     display: flex;
 `
-//  flex-direction : row; //디폴트값 안써도 무방
+//  flex-direction : row; // 디폴트값 안써도 무방
 
 const Column = styled.div`
     width: 20%;
@@ -35,7 +35,7 @@ export default function StaticRoutedPage(){
     const [deleteBoard] = useMutation(DELETE_BOARD)
     const { data } = useQuery(FETCH_BOARDS)
 
-    //버튼을눌렀을때 딜리트, 어떤것을 삭제할지 (게시글의 번호 가져오기 )
+    // 버튼을눌렀을때 딜리트, 어떤것을 삭제할지 (게시글의 번호 가져오기 )
     const onClickDelete = (event) => {
         deleteBoard({
             variables:{ number: Number(event.target.id)},
@@ -43,11 +43,11 @@ export default function StaticRoutedPage(){
         })
     }
     
-    //index는 계속 존재하므로 고유한 값으로 사용하기 
+    // index는 계속 존재하므로 고유한 값으로 사용하기 
     return (
         <>
             {data?.fetchBoards.map((el, index)=> (
-                //<Fragment key = {el.number}>
+                // <Fragment key = {el.number}>
                 <Row key = {el.number}>
                     <Column> 체크 : <input type="checkbox" /></Column>
                     <Column> 게시번호 : {el.number}</Column>

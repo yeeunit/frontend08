@@ -64,7 +64,7 @@ export default function HomeworkPracticePage(){
         if(isNaN(price)){
             setPriceError2("숫자만 입력하세요.")
             setCompleteMessage("")
-            //parseInt("price")??? 
+            // parseInt("price")??? 
         } 
         if( seller!=="" && product!=="" && 
         productContents!=="" && price!=="" && !isNaN(price)) {
@@ -86,7 +86,7 @@ export default function HomeworkPracticePage(){
 
             router.push(`/hw-1w-5d-productdetails/${result.data.createProduct._id}`)
 
-            /////질문 왜 productId아니고 _id???
+            ///// 질문 왜 productId아니고 _id???
 
             
             } catch (error){

@@ -34,7 +34,7 @@ export default function BoardWrite(props){
         if(writer) myVariables.writer = writer
         if(title) myVariables.title = title
         if(contents) myVariables.contents = contents
-        //중괄호안 한줄일떄 중괄호 생략 가능
+        // 중괄호안 한줄일떄 중괄호 생략 가능
         
         const result = await updateBoard({
             variables: myVariables
@@ -65,7 +65,7 @@ export default function BoardWrite(props){
 
     return (
         <BoardWriteUI 
-        onClickCreate={onClickGraphqlApi} //aaa대신
+        onClickCreate={onClickGraphqlApi} // aaa대신
         onClickUpdate={onClickUpdate}
         onChangeWriter={onChangeWriter}
         onChangeTitle={onChangeTitle}

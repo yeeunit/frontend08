@@ -39,7 +39,7 @@ export default function SignupStatePage(){
     const [emailError, setEmailError] = useState("")
 
     function onChangeEmail(event){
-        //console.log("111")
+        // console.log("111")
         // console.log(event.target) // 작동된 태그
         // console.log(event.target.value) // 작동된 태그의 값
         setEmail(event.target.value)
@@ -56,8 +56,8 @@ export default function SignupStatePage(){
 
         // 검증하기
         if(email.includes("@") === false){
-            //alert("이메일이 올바르지 않습니다. @없음!!")
-            //document.getElementById("qqq").innterText = "이메일이 올바르지 않습니다."
+            // alert("이메일이 올바르지 않습니다. @없음!!")
+            // document.getElementById("qqq").innterText = "이메일이 올바르지 않습니다."
             setEmailError("이메일이 올바르지 않습니다!!!")
             
         } else {

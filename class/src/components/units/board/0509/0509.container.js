@@ -25,7 +25,7 @@ export default function BoardWrite0509(){
         if (writer && title && contents) {
             alert("버튼을 눌러주세요!");
 
-            //<QQQ.TomatoButton disabled={false} />
+            // <QQQ.TomatoButton disabled={false} />
 
             }
 

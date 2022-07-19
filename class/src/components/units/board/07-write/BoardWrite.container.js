@@ -22,7 +22,7 @@ export default function BoardWrite(){
                 writer,
                 title,
                 contents
-                //: contents 키밸류 같으면 생략 가능
+                // : contents 키밸류 같으면 생략 가능
             }
         })
         console.log(result)

@@ -15,7 +15,7 @@ export default function GraphqlMutationPage(){
 
     const [createBoard] = useMutation(CREATE_BOARD)
 
-    //화살표함수
+    // 화살표함수
 
     const onClickGraphqlApi = async () => {
         const result = await createBoard({

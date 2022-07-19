@@ -1,7 +1,7 @@
 
 import * as P from './ProductWrite.styles'
 
-export default function ProductWrite_UI(props){
+export default function ProductWriteUI(props){
 
     return (
         <>

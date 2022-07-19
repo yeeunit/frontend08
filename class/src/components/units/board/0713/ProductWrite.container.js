@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client'
 import { useState } from 'react'
-import ProductWrite_UI from './ProductWrite.presenter'
+import ProductWriteUI from './ProductWrite.presenter'
 import { CREATE_PRODUCT } from './ProductWrite.queries'
 
 
@@ -76,8 +76,8 @@ export default function ProductWrite(){
 
 
     return (
-        <ProductWrite_UI 
-        onClickGraphqlApi={onClickGraphqlApi} //aaa대신
+        <ProductWriteUI 
+        onClickGraphqlApi={onClickGraphqlApi} // aaa대신
         
         onChangeSeller={onChangeSeller}
         onChangeProduct={onChangeProduct}

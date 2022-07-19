@@ -5,7 +5,7 @@ export default function RestGestPage(){
 
     const [title, setTitle] = useState("")
 
-    // //비동기
+    // 비동기
     // function onClickRestApiAsync(){
     //     const result = axios.get("https://koreanjson.com/posts/1")
     //     console.log(result)
@@ -19,7 +19,7 @@ export default function RestGestPage(){
     }
 
 
-    //동기
+    // 동기
     // async function onClickRestApiSync(){
     //     const result = await axios.get("https://koreanjson.com/posts/1")
     //     console.log(result)

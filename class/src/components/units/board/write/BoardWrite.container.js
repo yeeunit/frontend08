@@ -1,4 +1,4 @@
-import { useMutation, gql } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { useState } from 'react'
 import BoardWriteUI from './BoardWrite.presenter'
 import { CREATE_BOARD } from './BoardWrite.queries'
@@ -28,7 +28,7 @@ export default function BoardWrite(){
                 writer,
                 title,
                 contents
-                //: contents 키밸류 같으면 생략 가능
+                // : contents 키밸류 같으면 생략 가능
             }
         })
         console.log(result)
@@ -50,7 +50,7 @@ export default function BoardWrite(){
 
     return (
         <BoardWriteUI 
-        onClickGraphqlApi={onClickGraphqlApi} //aaa대신
+        onClickGraphqlApi={onClickGraphqlApi} // aaa대신
         onChangeWriter={onChangeWriter}
         onChangeTitle={onChangeTitle}
         onChangeContents={onChangeContents} 
