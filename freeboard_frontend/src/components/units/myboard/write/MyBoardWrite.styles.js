@@ -76,6 +76,13 @@ export const Label = styled.div`
     font-size: 16px;
     line-height: 50px;
 `
+export const Youtube = styled.input`
+  width: 996px;
+  height: 52px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
+`;
+
 
 export const Input = styled.input`
     border: 1px solid #BDBDBD;

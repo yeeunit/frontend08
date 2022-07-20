@@ -7,20 +7,20 @@ import { CREATE_BOARD, UPDATE_BOARD } from './MyBoardWrite.queries'
 
 export default function MyFreeBoardWrite(props){
   
-const router = useRouter()
-  const [isActive, setIsActive] = useState(false);
+  const router = useRouter()
+  const [ isActive, setIsActive ] = useState(false);
 
   const [name, setName] = useState("")    
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
-  // const [youtubeUrl, setYoutubeUrl] = useState("")
+  const [youtubeUrl, setYoutubeUrl] = useState("")
   // const [images, setImages] = useState("")
 
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("")
   const [titleError, setTitleError] = useState("");
-  const [contentsError, setContentsError] = useState("");
+  const [ contentsError, setContentsError ] = useState("");
 
   const [createBoard] = useMutation(CREATE_BOARD)
  const [updateBoard] = useMutation(UPDATE_BOARD);
@@ -78,9 +78,9 @@ const router = useRouter()
     }
   };
 
-    // const onChangeYoutubeUrl = (event) =>{
-    // setYoutubeUrl(event.target.value);
-    // }
+    const onChangeYoutubeUrl = (event) =>{
+    setYoutubeUrl(event.target.value);
+    }
 
     // const onChangeImages = (event) =>{
     // setImages(event.target.value);
@@ -108,7 +108,7 @@ const router = useRouter()
                 password: password,
                 title: title,
                 contents: contents,
-                // youtubeUrl : youtubeUrl,
+                youtubeUrl : youtubeUrl,
                 // images : images
             }
           }
@@ -168,7 +168,7 @@ const router = useRouter()
         onChangePassword={onChangePassword}
         onChangeTitle={onChangeTitle}
         onChangeContents={onChangeContents}
-        // onChangeYoutubeUrl={onChangeYoutubeUrl}
+        onChangeYoutubeUrl={onChangeYoutubeUrl}
         // onChangeImages={onChangeImages}
         onClickRegister={onClickRegister}
         onClickUpdate={onClickUpdate}

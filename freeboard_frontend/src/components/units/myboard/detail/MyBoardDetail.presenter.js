@@ -43,14 +43,11 @@ export default function MyBoardDetailUI(props){
                 {props.data ? props.data.fetchBoard.contents : "받아오는 중입니다."}
             </D.Contents>
 
-            <D.Youtube>
-                Youtube : ^^^^<br />
-                {/* {data?.fetchBoard?.youtubeUrl} */}
-                {/* <ReactPlayer url="{data.fetchBoard.youtubeUrl}" />
-                <iframe controls src= "{data.fetchBoard.youtubeUrl}/embed/" frameborder="0" allow="accelerometer" autoplay />   */}
-                {/* https://www.youtube.com/watch?v=_imugTbct5U */}
-
-            </D.Youtube>
+            <D.Youtube 
+            url={props.data?.fetchBoard.youtubeUrl}
+                width="486px"
+                height="240px"
+            />
 
             </D.Bodywrap>
 

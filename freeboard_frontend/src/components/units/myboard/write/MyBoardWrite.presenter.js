@@ -40,7 +40,7 @@ export default function MyBoardWriteUI(props){
 
         <B.Contents>
             <B.Label>내용 *</B.Label>
-            <B.Input type="text" onChange={props.onChangeContents} placeholder="내용을 작성해주세요."></B.Input> 
+            <B.Youtube type="text" onChange={props.onChangeContents} placeholder="내용을 작성해주세요." />
             <B.Error>{props.contentsError}</B.Error>
             {/* <div style={{ color: "red", paddingTop: "20px" }}>{contentsError}</div> */}
         </B.Contents>
@@ -62,10 +62,10 @@ export default function MyBoardWriteUI(props){
 
         <B.Contents>
             <B.Label>유튜브</B.Label>
-            <B.Input  placeholder="링크를 복사해주세요.">
-            </B.Input>
-
-            {/* iframe type="url" onChange={props.onChangeYoutubeUrl} */}
+            <B.Input  
+                placeholder="링크를 복사해주세요." 
+                onChange={props.onChangeYoutubeUrl}
+                defaultValue={props.data?.fetchBoard.youtubeUrl || ""} />
         </B.Contents>
 
         <B.Contents>

@@ -29,7 +29,7 @@ export default function BoardList() {
 
   return (
     <BoardListUI
-      data={data}
+      // data={data}
       onClickMoveToBoardNew={onClickMoveToBoardNew}
       onClickMoveToBoardDetail={onClickMoveToBoardDetail}
       onClickDelete={onClickDelete}

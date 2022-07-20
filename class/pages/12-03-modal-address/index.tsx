@@ -23,7 +23,7 @@ export default function ModalAlertPage(){
         setIsModalVisible(false)
       }
 
-      //모달 같이 종료하기 
+      // 모달 같이 종료하기 
     return (
     <>
       <Button onClick={showModal}>

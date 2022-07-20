@@ -20,7 +20,7 @@ export default function FreeBoardWrite(props){
     const [contentsError, setContentsError] = useState("");
 
     const [createBoard] = useMutation "createBoard" (CREATE_BOARD)
-    const [updateBoard] = useMutatio "updateBoard" (UPDATE_BOARD)
+    const [updateBoard] = useMutation "updateBoard" (UPDATE_BOARD)
 
 
     const onChangeName = (event) => {
