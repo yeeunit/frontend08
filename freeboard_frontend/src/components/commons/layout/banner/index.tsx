@@ -5,22 +5,25 @@ import 'slick-carousel/slick/slick-theme.css';
 
 
 const Wrapper = styled.div`
-    height : 300px;
-    background-color : pink;
+    /* height : 300px;
+    background-color : black;
+    color: white;
+    opacity: 0.5;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
 `
-const ImgWrapper = styled.div`
-   width: 100%;
-    height: 200px;
-    display: flex;
-    flex-direction: row;
+    
+// `
+// const ImgWrapper = styled.div`
+//    width: 100%;
+//     height: 200px;
+//     display: flex;
+//     flex-direction: row;`
 
-`
+
 const Image = styled.img`
-    width: 100%;
-    height: 100%;
+
 `
 
 export default function LayoutBanner(){
@@ -35,14 +38,14 @@ export default function LayoutBanner(){
         };
 
 
-    return <Wrapper>
-            배너영역
-            <ImgWrapper>
-                <Slider style = {{ width : "100px", margin: "auto"}}  {...settings}>
+    return (
+        <Wrapper>
+            Banner
+                <Slider {...settings}>
                     <Image src='/Vector (1).png' />
                     <Image src='/Vector (2).png' />
                     <Image src='/Vector (3).png' />
                 </Slider>
-            </ImgWrapper>
-    </Wrapper>
+        </Wrapper>
+    )
 }

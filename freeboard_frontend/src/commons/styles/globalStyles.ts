@@ -4,7 +4,6 @@ export const globalStyles = css`
   * {
     margin: 0;
     box-sizing: border-box;
-    font-size: 30px;
     text-align: center;
   }
 
@@ -12,4 +11,4 @@ export const globalStyles = css`
     font-family: "myfont";
     src: url("/fonts/scifibit.ttf");
   }
-`;
+`

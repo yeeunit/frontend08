@@ -1,11 +1,18 @@
 import styled from '@emotion/styled'
 
+
 const Wrapper = styled.div`
     height : 50px;
-    background-color : grey;
+    background-color : orange;
+    font-family : "myfont";
 `
 
 export default function LayoutFooter(){
 
-    return <Wrapper>여기는 네비게이션영역 입니다.</Wrapper>
+    return  (
+
+         <Wrapper> 
+         Navigation font
+        </Wrapper>
+    )
 }

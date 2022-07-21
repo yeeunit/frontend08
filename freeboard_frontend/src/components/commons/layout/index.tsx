@@ -30,18 +30,9 @@ import LayoutFooter from "./footer"
         <LayoutHeader />
         <LayoutBanner />
         <LayoutNavigation />
-        <div style={{ display: "flex" }}>
-        <div
-          style={{
-            width: "300px",
-            height: "700px",
-            backgroundColor: "skyblue",
-          }}
-        >
-          사이드바  
-        </div>        
-            <div>{props.children}</div>
-          </div> 
+          
+          <div>{props.children}</div>
+
         <LayoutFooter />
 
       </>

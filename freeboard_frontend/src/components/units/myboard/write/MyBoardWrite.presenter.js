@@ -3,8 +3,7 @@ import * as B from "./MyBoardWrite.styles";
 export default function MyBoardWriteUI(props){
     return (
 
-    <B.Body style={{
-        background: '#E9CFEC'}}>
+    <B.Body>
 
     <B.Wrapper> 
 
