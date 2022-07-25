@@ -3,11 +3,13 @@ import styled from '@emotion/styled'
 const Wrapper = styled.div`
     height : 50px;
     width: 100%;
-    background-color : green;
-    display: block;
+    font-size: 20px;
+    line-height: 50px;
+    background-color : #aaa;
+    color: white;
 `
 
 export default function LayoutFooter(){
 
-    return <Wrapper>푸터영역</Wrapper>
+    return <Wrapper>COPYRIGHT YEEUNIT</Wrapper>
 }

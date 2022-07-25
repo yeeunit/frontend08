@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import LayoutHeader from "./header"
 import LayoutBanner from "./banner"
 import LayoutNavigation from "./navigation"
-// import LayoutSidebar from "./sidebar"
+import LayoutSidebar from "./sidebar"
 import LayoutFooter from "./footer"
 
 // const HIDDEN_HEADERS = [
@@ -30,7 +30,9 @@ import LayoutFooter from "./footer"
         <LayoutHeader />
         <LayoutBanner />
         <LayoutNavigation />
-        <div style={{ display: "flex" }}>
+        <LayoutSidebar />
+        {/* <div style={{ display: "flex" }}>
+        
         <div
           style={{
             width: "300px",
@@ -40,8 +42,9 @@ import LayoutFooter from "./footer"
         >
           사이드바  
         </div>        
-            <div>{props.children}</div>
-          </div> 
+          </div>  */}
+          <div>{props.children}</div>
+
         <LayoutFooter />
 
       </>

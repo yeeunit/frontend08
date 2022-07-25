@@ -6,13 +6,10 @@ export default function CounterStatePage(){
 
     function counterUp(){
         setCount(count + 1)
-
     }
-
 
     function counterDown(){
         setCount(count - 1)
-
     }
 
     return(
@@ -21,10 +18,7 @@ export default function CounterStatePage(){
             <div>{count}</div>
             <button onClick={counterUp}>카운트 올리기!!!</button>
 
-
             <button onClick={counterDown}>카운트 내리기!!!</button>
-
-
 
         </>
     )

@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-
+import { Avatar, AvatarWrapper, Body, BottomWrapper, Button, CardWrapper, Contents, CreatedAt, Header, Info, Title, Wrapper, Writer } from "../../../styles/emotion-detail";
 
 function MyApp({ Component, pageProps }) {
 

@@ -1,9 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
 import { MouseEvent, useState } from "react";
-import {
-  IQuery,
-  IQueryFetchBoardsArgs,
+import {IQuery, IQueryFetchBoardsArgs,
 } from "../../src/commons/types/generated/types";
 
 const FETCH_BOARDS = gql`
