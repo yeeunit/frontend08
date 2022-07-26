@@ -2,7 +2,6 @@
 import { Modal } from "antd"
 import { getDate } from "../../../../commons/libraries/utils"
 import * as C from "../list/BoardCommentList.styles"
-import BoardCommentWrite from "../write/BoardCommentWrite.contatiner"
 import { IBoardCommentListUIProps } from "./BoardCommntList.typescript"
 
 

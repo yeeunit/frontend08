@@ -53,7 +53,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps){
             <D.BottomWrapper>
               <D.Button onClick={props.onClickMoveToList}>목록으로</D.Button>
               <D.Button onClick={props.onClickMoveToBoardEdit}>수정하기</D.Button>
-              <D.Button onClick={props.onClickMoveToList}>삭제하기</D.Button>
+              <D.Button onClick={props.onClickDelete}>삭제하기</D.Button>
             </D.BottomWrapper>
 
             </D.CardWrapper>

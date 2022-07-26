@@ -21,6 +21,14 @@ query fetchBoard($boardId: ID!){
 }
 `
 
+export const DELETE_BOARD = gql`
+    mutation deleteBoard($number: Int){
+        deleteBoard(number: $number){
+            message
+        }
+    }
+`
+
 export const LIKE_BOARD = gql`
     mutation likeBoard($boardId: ID!) {
         likeBoard(boardId: $boardId)

@@ -1,3 +1,6 @@
+// 4주차 퀴즈
+// 1-1. 컴포넌트 생명주기
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -10,10 +13,9 @@ export default function LifecyclePage() {
 
 
     const onChange = () => {
-        setIsChange(true)
-        console.log(setIsChange)
-        alert("Changed!!!")
-
+        // setIsChange(prev => !prev)
+        setIsChange()
+        console.log(isChange)
     }
 
     const onClickMove = () =>{
@@ -25,12 +27,14 @@ export default function LifecyclePage() {
     useEffect(() => {
         console.log("그려지고 나서 실행")
         alert("Renderded!!!")
-
     }, []);
+
 
     useEffect(() => {
         console.log("변경되고 나서 실행")
-    });
+        alert("Changed!!!")
+    }, [isChange]);
+
 
     useEffect(() => {
         return() => {
