@@ -7,7 +7,7 @@ export default function ImagePreloadPage() {
   useEffect(() => {
     const img = new Image();
     img.src =
-      "https://photo.coolenjoy.co.kr/data/editor/1701/Bimg_20170117170029_eifhrhpl.jpg";
+      "https://www.techradar.com/best/free-stock-photos";
     img.onload = () => {
       setImgTag(img);
     };

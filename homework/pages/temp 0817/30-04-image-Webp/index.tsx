@@ -6,7 +6,7 @@ export default function ImagePreloadPage() {
 
   useEffect(() => {
     const img = new Image();
-    img.src = "/IMG_6090.webp";
+    img.src = "/t.webp";
     img.onload = () => {
       setImgTag(img);
     };
@@ -19,7 +19,7 @@ export default function ImagePreloadPage() {
   return (
     <>
       <div ref={divRef}></div>
-      <img src="/IMG_6090.webp" />
+      <img src="/t.webp" />
       <button onClick={onClickPreload}>PreLoad</button>
     </>
   );
