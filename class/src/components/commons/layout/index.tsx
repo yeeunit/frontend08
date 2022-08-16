@@ -28,9 +28,9 @@ import LayoutFooter from "./footer"
     return (
       <>
         <LayoutHeader />
-        <LayoutBanner />
-        <LayoutNavigation />
-        <LayoutSidebar />
+        {/* <LayoutBanner />
+        <LayoutNavigation /> */}
+        {/* <LayoutSidebar /> */}
         {/* <div style={{ display: "flex" }}>
         
         <div
