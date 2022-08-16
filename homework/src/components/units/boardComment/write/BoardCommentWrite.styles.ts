@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     border-bottom: 3px solid #2B3856;
     border-top: 3px solid #2B3856;
+    background-color: white;
 `
 
 export const CommentWrap = styled.div`

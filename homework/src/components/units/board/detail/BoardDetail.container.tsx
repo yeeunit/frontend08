@@ -1,17 +1,37 @@
 import { useMutation, useQuery } from "@apollo/client"
 import { useRouter } from "next/router"
-import { IMutation, IMutationDeleteBoardArgs, IMutationDislikeBoardArgs, IMutationLikeBoardArgs, IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generated/types"
-import { DELETE_BOARD } from "../write/BoardWrite.queries"
-import {DISLIKE_BOARD, FETCH_BOARD, LIKE_BOARD} from "./BoardDetail.queries"
+import { 
+  IMutation, 
+  IMutationDeleteBoardArgs, 
+  IMutationDislikeBoardArgs, 
+  IMutationLikeBoardArgs, 
+  IQuery, 
+  IQueryFetchBoardArgs 
+} from "../../../../commons/types/generated/types"
+
+import {
+  DELETE_BOARD, 
+  DISLIKE_BOARD, 
+  FETCH_BOARD, 
+  LIKE_BOARD
+} from "./BoardDetail.queries"
 import BoardDetailUI from "./BoardDetail.presenter"
 
 
 export default function BoardDetail(){
 
     const router = useRouter()
-    const [likeBoard] = useMutation<Pick<IMutation, "likeBoard">, IMutationLikeBoardArgs>(LIKE_BOARD)
-    const [dislikeBoard] = useMutation<Pick<IMutation, "dislikeBoard">, IMutationDislikeBoardArgs>(DISLIKE_BOARD)
-    const [deleteBoard] = useMutation<Pick<IMutation, "deleteBoard">, IMutationDeleteBoardArgs>(DELETE_BOARD)
+    const [likeBoard] = useMutation<
+    Pick<IMutation, "likeBoard">, 
+    IMutationLikeBoardArgs>(LIKE_BOARD)
+
+    const [dislikeBoard] = useMutation<
+    Pick<IMutation, "dislikeBoard">, 
+    IMutationDislikeBoardArgs>(DISLIKE_BOARD)
+
+    const [deleteBoard] = useMutation<
+    Pick<IMutation, "deleteBoard">, 
+    IMutationDeleteBoardArgs>(DELETE_BOARD)
 
     const { data } = useQuery<Pick<IQuery, "fetchBoard">, 
     IQueryFetchBoardArgs>(FETCH_BOARD,{
@@ -27,16 +47,19 @@ export default function BoardDetail(){
   };
 
 
-  const onClickDelete = async (event) => {
+  const onClickDelete = async () => {
+    if (typeof router.query.boardId !== "string") 
+    return;
     try {
       await deleteBoard({
-          variables:{ 
-            number: Number(event.target.id)
-          }      
+          variables:{ boardId: router.query.boardId }
         })
+        alert("게시글이 정상적으로 삭제되었습니다.");
+      router.push("/boards");
     }
     catch (error) {
-      alert(error.message)}
+      if (error instanceof Error) alert(error.message);
+    }
   }
   
 

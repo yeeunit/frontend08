@@ -6,16 +6,12 @@ import { Modal } from "antd";
 export const Wrapper = styled.div`
   width: 1000px;
   /* height: 1847px; */
-  border: 1px solid black;
-  margin: 100px auto;
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
+  margin: 50px auto;
+  padding: 100px;
   display: flex;  
   flex-direction: column;
   align-items: center;
-  border: 7px solid #2B3856;
+  /* border: 7px solid #2B3856; */
   /* box-shadow: 0px 0px 10px gray; */
   background-color: white;
   color: #2B3856;
@@ -76,7 +72,7 @@ export const Subject = styled.input`
 
 export const Contents = styled.textarea`
   width: 800px;
-  height: 480px;
+  height: 400px;
   padding-left: 16px;
   padding: 14px;
   border: 1px solid #bdbdbd;
@@ -161,29 +157,32 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 60px;
 `;
 
 export const CancelButton = styled.button`
-  width: 179px;
-  height: 52px;
-  background-color: #bdbdbd;
+  width: 140px;
+  height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 50px ;
   border: none;
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 12px;
-  margin-right: 12px;
+  font-family: "Jua";
+  background-color: #bdbdbd;
+  color: #2B3856;
+  margin-left: 15px;
   cursor: pointer;
 `;
 
 export const SubmitButton = styled.button`
-  width: 160px;
-  height: 55px;
-  border: none;
-  font-size: 22px;
-  font-weight: 200;
+  width: 140px;
+  height: 50px;
+  font-size: 18px;
   cursor: pointer;
   border-radius: 50px ;
+  border: none;
+  margin-right: 15px;
+
   font-family: "Jua";
 
   background-color: #2B3856;
@@ -197,6 +196,9 @@ export const Error = styled.div`
   color: tomato;
   font-family: none;
 `;
+
+
+
 
 
 

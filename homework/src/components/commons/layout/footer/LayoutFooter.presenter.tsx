@@ -6,7 +6,7 @@ export default function LayoutFooterUI() {
     <>
         <F.Wrapper>
             <div>
-            COPYRIGHT ㅣ YEEUNIT
+            COPYRIGHT &nbsp; ㅣ &nbsp; YEEUNIT 
             </div>
         </F.Wrapper>
 

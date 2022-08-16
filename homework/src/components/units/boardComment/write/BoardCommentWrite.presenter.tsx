@@ -1,6 +1,7 @@
-import * as C from "../write/BoardCommentWrite.styles"
+import * as C from "./BoardCommentWrite.styles"
 import { IBoardCommentWriteUIProps } from "./BoardCommntWrite.typescript";
-
+import "antd/dist/antd.css";
+// 여기반영중 수정함 8/15 오전
 
 export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
 
@@ -9,16 +10,14 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
         <C.Wrapper>
             <C.CommentWrap>
                 <C.CommentTitle>
-                    댓글
-                </C.CommentTitle>
-
-                   
                     
                     {!props.isEdit && (
         <>
           <span>댓글</span>
         </>
       )}    
+                      </C.CommentTitle>
+
                     <C.Input
           placeholder="작성자"
           onChange={props.onChangeWriter}
@@ -32,8 +31,6 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
           value={props.password}
         />
 
-
-        ⭐️
             <C.Star onChange={props.setStar} />
 
 

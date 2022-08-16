@@ -1,6 +1,7 @@
 import * as D from "./BoardDetail.styles"
 import { getDate } from "../../../../commons/libraries/utils";
 import { IBoardDetailUIProps } from "./BoardDetail.types";
+import { Tooltip } from "antd";
 
 
 export default function BoardDetailUI(props: IBoardDetailUIProps){
@@ -9,24 +10,34 @@ export default function BoardDetailUI(props: IBoardDetailUIProps){
         <D.Wrapper>
             <D.CardWrapper>
               <D.Header>
+                
                 <D.AvatarWrapper>
                   <D.Avatar src="/images/avatar.png" />
+                  <D.Writer>{props.data?.fetchBoard?.writer}</D.Writer>
+
+                </D.AvatarWrapper>
+
                   <D.Info>
-                    <D.Writer>{props.data?.fetchBoard?.writer}</D.Writer>
                     <D.CreatedAt>
                     {getDate(props.data?.fetchBoard?.createdAt)}
                     </D.CreatedAt>
                   </D.Info>
-                </D.AvatarWrapper>
+{/* 
+                <Tooltip
+              placement="topRight"
+              title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+            > 툴팁
+              <D.LocationIcon src="/images/board/detail/location.png" />
+            </Tooltip> */}
               </D.Header>
 
               <D.Body>
                 <D.Title>
-                  제목{props.data?.fetchBoard?.title}</D.Title>
+                  {props.data?.fetchBoard?.title}</D.Title>
                 <D.Contents>
-                  콘텐츠{props.data?.fetchBoard?.contents}</D.Contents>
+                  {props.data?.fetchBoard?.contents}</D.Contents>
                 
-                <D.Youtube> 유튜브                 
+                <D.Youtube>                   
                 {props.data?.fetchBoard?.youtubeUrl && (
 
                 <D.YoutubePlayer 
@@ -36,13 +47,30 @@ export default function BoardDetailUI(props: IBoardDetailUIProps){
                 )}
                 </D.Youtube>
 
+                <D.ImageWrapper>
+                  {/* {props.data?.fetchBoard.images} */}
+                  {/* <img 
+                style = {{width:"400px"}} 
+                src = {`https://storage.googleapis.com/${props.imageUrl}`} /> */}
+              {props.data?.fetchBoard.images
+              ?.filter((el: string) => el)
+              .map((el: string) => (
+                <D.Image
+                  key={el}
+                  src={`https://storage.googleapis.com/${el}`}
+                />
+              ))}
+
+                </D.ImageWrapper>
+               
+
                 <D.LikeDislike>
-                  <div>좋아요
+                  <div>
                   <D.LikeIcon onClick={props.onClickLike} />
                   {props.data?.fetchBoard?.likeCount}
                   </div>
                   <div>
-                  싫어요
+                  
                   <D.DislikeIcon onClick={props.onClickDislike} />
                   {props.data?.fetchBoard?.dislikeCount}
                   </div>

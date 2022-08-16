@@ -10,22 +10,22 @@ query fetchBoard($boardId: ID!){
         contents
         createdAt
         youtubeUrl
+        images
         likeCount
         dislikeCount
         boardAddress {
             zipcode
             address
-            addressDetail}
+            addressDetail
+            }
       createdAt
     }
 }
 `
 
 export const DELETE_BOARD = gql`
-    mutation deleteBoard($number: Int){
-        deleteBoard(number: $number){
-            message
-        }
+    mutation deleteBoard($boardId: ID!){
+        deleteBoard(boardId: $boardId)
     }
 `
 

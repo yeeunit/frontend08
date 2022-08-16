@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     padding: 100px;
     border-bottom: 4px solid #2B3856;
+    background-color: white;
 ;
 `
 
