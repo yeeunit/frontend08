@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { collection, getFirestore, addDoc } from "firebase/firestore/lite";
-import { firebaseApp } from "../../../../../pages/_app";
+import { firebaseApp } from "../../../../../pages/_a";
 import MyfirebaseWriteUI from "./MyfirebaseWrite.presenter";
 import { useRouter } from "next/router";
 

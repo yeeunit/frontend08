@@ -4,17 +4,18 @@
 
 import { useMutation } from "@apollo/client"
 import { useRouter } from "next/router"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, Component, useState } from "react"
 import { useRecoilState } from "recoil"
 import { accessTokenState } from "../../../../src/commons/store"
 import { IMutation, IMutationLoginUserArgs } from "../../../../src/commons/types/generated/types"
+import { withAuth } from "../../commons/example/hoc/withAuth"
 import LoginWriteUI from "./Login.presenter"
 import { LOGIN_USER } from "./Login.queries"
 
 
 
 
-export default function LoginWrite(){
+ function LoginWrite(){
     const [accessToken, setAccessToken] = useRecoilState(accessTokenState)
 
     const router = useRouter()
@@ -60,3 +61,5 @@ export default function LoginWrite(){
     </LoginWriteUI>
 )
 }
+
+export default withAuth( LoginWrite )

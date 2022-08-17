@@ -46,8 +46,25 @@ export default function ImageUploadPage(){
 
       const resultFile = await uploadFile({ variables: { file } });
       const url = resultFile.data.uploadFile.url;
-      
+
+      // Objet 넌 어디서 온거니?..
+      if (Object.values(inputs).every((el) => el)) {
+        try {
+      const result = createBoard({
+        variables: {
+          createBoardInput: {
+            ...inputs,
+            images: url,
+          },
+        },
+      });
+      console.log(result);
+      console.log(`결과는 ${result}`);
+    } catch (error) {
+      if (error instanceof Error) console.log(error.message);
     }
+  }
+  }
 
     const onChangeInputs = (event) => {
       const _inputs = { 
@@ -55,23 +72,8 @@ export default function ImageUploadPage(){
         [event.target.id]: event.target.value,
       };
       setInputs(_inputs);
-    
-          if (Object.values(inputs).every((el) => el)) {
-            try {
-          const result = createBoard({
-            variables: {
-              createBoardInput: {
-                ...inputs,
-                images: url,
-              },
-            },
-          });
-          console.log(result);
-          console.log(`결과는 ${result}`);
-        } catch (error) {
-          if (error instanceof Error) console.log(error.message);
-        }
-    }}
+  }
+
     const onChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0];
       if (!file) return;

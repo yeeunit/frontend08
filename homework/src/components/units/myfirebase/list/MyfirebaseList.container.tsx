@@ -6,7 +6,7 @@ import {
   getDocs,
   DocumentData,
 } from "firebase/firestore/lite";
-import { firebaseApp } from "../../../../../pages/_app";
+import { firebaseApp } from "../../../../../pages/_a";
 import { useRouter } from "next/router";
 
 export default function MyfirebaseList() {

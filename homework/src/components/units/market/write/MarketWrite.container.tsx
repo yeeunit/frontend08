@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 
 
 
-const initialInputs = { name: "", remarks: ""};
+const initialInputs = { name: "", remarks: "", contents:"", price: "", };
 // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 
@@ -94,7 +94,7 @@ export default function MarketWrite(){
           variables: {
             createUseditemInput: {
               ...inputs,
-              price: Number(price)
+              price: Number(price) 
             },
           },
         });
