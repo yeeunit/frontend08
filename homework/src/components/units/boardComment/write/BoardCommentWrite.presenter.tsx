@@ -1,3 +1,4 @@
+
 import * as C from "./BoardCommentWrite.styles"
 import { IBoardCommentWriteUIProps } from "./BoardCommntWrite.typescript";
 import "antd/dist/antd.css";
