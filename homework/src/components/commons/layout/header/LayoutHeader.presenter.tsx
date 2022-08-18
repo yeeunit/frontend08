@@ -1,10 +1,24 @@
-import styled from "@emotion/styled"
+import { gql, useQuery } from "@apollo/client"
+import { IQuery } from "../../../../commons/types/generated/types"
 import * as H from "./LayoutHeader.styles"
+import { withAuth } from "../../example/hoc/withAuth" 
+
 
 import { ILayoutHeaderProps } from "./LayoutHeader.types"
 
+const FETCH_USER_LOGGED_IN = gql`
+    query fetchUserLoggedIn {
+        fetchUserLoggedIn{
+            email
+            name
+        }
+    }
+`
+
+// function LayoutHeaderUI(){
 export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
 
+    const {data} = useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN)
 
     return(
     <>
@@ -18,6 +32,11 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
 
             <H.UserWrapper>
 
+            {/* <div>
+            <H.User>  {data?.fetchUserLoggedIn.name} </H.User> 님 웰컴!!! 
+            </div> */}
+
+
             <H.Login>
             <a href="http://localhost:3000/boards/login/"> 
             login
@@ -27,6 +46,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
             <H.Login>
             <a href="http://localhost:3000/boards/join/"> 
             join
+            
             {/* <H.Img src="/images/avatar.png"/> */}
             </a>
             </H.Login>
@@ -40,3 +60,4 @@ export default function LayoutHeaderUI(props: ILayoutHeaderProps) {
     )
 }
 
+// export default withAuth(LayoutHeaderUI)

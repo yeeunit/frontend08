@@ -1,9 +1,10 @@
-import { SearchOutlined } from "@ant-design/icons";
 import { getDate } from "../../../../commons/libraries/utils";
 import Paginations from "../../../commons/paginations/01/Paginations01.container";
 import * as L from "./BoardList.styles"
 import { IBoardListUIProps } from "./BoardList.types";
 import { v4 as uuidv4 } from "uuid";
+import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
+
 
 
 export default function BoardListUI(props: IBoardListUIProps){
@@ -42,6 +43,7 @@ export default function BoardListUI(props: IBoardListUIProps){
             ))}
             </L.ColumnBasic>
 
+                
 
             <L.ColumnBasic  onClick={props.onClickMoveToBoardDetail} >
               {el.writer}
@@ -70,14 +72,22 @@ export default function BoardListUI(props: IBoardListUIProps){
 
 
         
-          <L.Search>
+        
+          {/* <L.Search>
           
           <input refetch={props.refetch}
-        refetchBoardsCount={props.refetchBoardsCount} type="text" onChange={props.onChangeSearch}/>
+                  refetchBoardsCount={props.refetchBoardsCount}
+                  type="text" onChange={props.onChangeSearch}/>
 
           <SearchOutlined style={{width:"50px"}} /> 
           
-          </L.Search>
+          </L.Search> */}
+
+          <Searchbars01
+            refetch={props.refetch}
+            refetchBoardsCount={props.refetchBoardsCount}
+            onChangeKeyword={props.onChangeKeyword}
+      />
 
           <L.Button onClick={props.onClickMoveToBoardNew}>
             새글 작성하기

@@ -1,7 +1,7 @@
 
 import * as C from "./BoardCommentWrite.styles"
-import { IBoardCommentWriteUIProps } from "./BoardCommntWrite.typescript";
 import "antd/dist/antd.css";
+import { IBoardCommentWriteUIProps } from "./BoardCommentWrite.types";
 // 여기반영중 수정함 8/15 오전
 
 export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
@@ -47,7 +47,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps){
             /100
           </C.ContentsLength>
                 <C.CommentBtn 
-                 onClick={props.isEdit ? props.onClickUpdate : props.onClickCommentWrite}
+                 onClick={props.isEdit ? props.onClickUpdate : props.onClickWrite}
                  >
                    {props.isEdit ? "수정하기" : "등록하기"}
                    </C.CommentBtn>

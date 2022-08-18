@@ -15,14 +15,14 @@ export const Wrapper = styled.div`
   background-color: white;
   color: #2B3856;
   font-family: "Jua";
-  background-color: pink;
-
+  border: #2B3856 1px solid;
 `;
 
 export const Title = styled.div`
   font-family: "Jua";
   font-size: 55px;
   font-weight: bold;
+  margin: 10px;
 `;
 
 export const WriterWrapper = styled.div`
@@ -31,9 +31,9 @@ export const WriterWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-top: 40px;
+  margin: 10px;
+
 `;
-
-
 
 
 export const InputWrapper = styled.div`
@@ -41,22 +41,25 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   width: 900px;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
+
 
 `;
 
 export const Label = styled.div`
   font-size: 20px;
   font-weight: 600;
+  margin: 10px;
 
 `;
 
 export const Input = styled.input`
-  width: 500px;
-  height: 40px;
+  width: 770px;
+  height: 50px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
   background-color: #eee;
+  margin: 10px;
 
 `;
 
@@ -128,12 +131,6 @@ export const Address = styled.input`
   background-color: #eee;
 `;
 
-export const Youtube = styled.input`
-  width: 800px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
-`;
 
 export const ImageWrapper = styled.div`
   width: 800px;
@@ -155,21 +152,11 @@ export const OptionWrapper = styled.div`
   padding-top: 40px;
 `;
 
-export const RadioButton = styled.input`
-  cursor: pointer;
-`;
-
-export const RadioLabel = styled.label`
-  margin-left: 8px;
-  margin-right: 20px;
-  font-weight: 500;
-  cursor: pointer;
-`;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   padding-top: 60px;
 `;
 
@@ -194,8 +181,6 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   border-radius: 50px ;
   border: none;
-  margin-right: 15px;
-
   font-family: "Jua";
 
   background-color: #2B3856;

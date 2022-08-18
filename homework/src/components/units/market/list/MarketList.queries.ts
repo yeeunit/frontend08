@@ -12,9 +12,3 @@ query fetchUseditems($isSoldout: Boolean, $search: String, $page: Int) {
     }
   }
 `
-
-export const FETCH_BOARDS_COUNT = gql`
-    query fetchBoardsCount($search: String){
-        fetchBoardsCount(search: $search)
-    }
-`

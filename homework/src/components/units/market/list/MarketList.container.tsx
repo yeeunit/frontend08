@@ -5,11 +5,9 @@ import { ChangeEvent, MouseEvent, useState } from "react"
 import { 
   IBoard,
   IQuery, 
-  IQueryFetchBoardsArgs, 
-  IQueryFetchBoardsCountArgs, 
   IQueryFetchUseditemsArgs} from "../../../../commons/types/generated/types"
-import BoardListUI from "./MarketList.presenter"
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT, FETCH_USEDITEMS } from "./MarketList.queries"
+import MarketListUI from "./MarketList.presenter"
+import { FETCH_USEDITEMS } from "./MarketList.queries"
 
 
 export default function MarketList(){
@@ -22,23 +20,23 @@ export default function MarketList(){
     IQueryFetchUseditemsArgs>(FETCH_USEDITEMS);
    
   
-  const onClickMoveToMarketDetail = (event: MouseEvent<HTMLDivElement>) => {    
-    if (!(event.target instanceof HTMLDivElement)) return; ///////
-      // console.log(event.target.id)
-      // console.log(event.target.createdAt)
-      router.push(`/boards/${event.target.id}`);
-    }
+  // const onClickMoveToMarketDetail = (event: MouseEvent<HTMLDivElement>) => {    
+  //   if (!(event.target instanceof HTMLDivElement)) return; ///////
+  //     // console.log(event.target.id)
+  //     // console.log(event.target.createdAt)
+  //     router.push(`/boards/${event.target.id}`);
+  //   }
 
 
 
-    const getDebounce = _.debounce((value) => {
-      refetch({ search: value, page: 1 })
-      setKeyword(value)
-  }, 1000)
+//     const getDebounce = _.debounce((value) => {
+//       refetch({ search: value, page: 1 })
+//       setKeyword(value)
+//   }, 1000)
 
-    const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    getDebounce(event.target.value)
-}
+//     const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+//     getDebounce(event.target.value)
+// }
 
     const onClickPage = (event: MouseEvent<HTMLScriptElement>) => {
   if(!(event.target instanceof HTMLSpanElement)) return;
@@ -79,7 +77,6 @@ const onClickBasket = (basket: IBoard) => () => {
     data = {data}
 
 
-    onChangeSearch = {onChangeSearch}
     onClickPage = {onClickPage}
     refetch = {refetch}
 
@@ -87,7 +84,6 @@ const onClickBasket = (basket: IBoard) => () => {
 
     onChangeKeyword={onChangeKeyword}
     onClickBasket={onClickBasket}
-    onClickMove={onClickMove}
     />
   )
 

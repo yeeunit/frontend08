@@ -51,7 +51,7 @@ console.log(data)
         <Wrapper>
 
             <Title>
-                {data?.fetchUserLoggedIn.email} 환영합니다
+                {data?.fetchUserLoggedIn.name}님 환영합니다^^
                 
             </Title>
 

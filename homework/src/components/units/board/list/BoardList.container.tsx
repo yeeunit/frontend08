@@ -19,7 +19,7 @@ export default function BoardList(){
     Pick<IQuery, "fetchBoards">, 
     IQueryFetchBoardsArgs>(FETCH_BOARDS);
    
-    const { data: dataBoardsCount } = useQuery<
+    const { data: dataBoardsCount, refetch: refetchBoardsCount  } = useQuery<
     Pick<IQuery, "fetchBoardsCount">, 
     IQueryFetchBoardsCountArgs>(FETCH_BOARDS_COUNT)
 
@@ -84,15 +84,19 @@ const onClickBasket = (basket: IBoard) => () => {
 
     <BoardListUI
     data = {data}
+
     onClickMoveToBoardNew = {onClickMoveToBoardNew}
     onClickMoveToBoardDetail = {onClickMoveToBoardDetail}
+
     onChangeSearch = {onChangeSearch}
     onClickPage = {onClickPage}
+
     refetch = {refetch}
+    refetchBoardsCount = {refetchBoardsCount}
     count = {dataBoardsCount?.fetchBoardsCount}
     keyword = {keyword}
     onChangeKeyword={onChangeKeyword}
-    onClickBasket={onClickBasket}
+    // onClickBasket={onClickBasket}
     // onClickMove={onClickMove}
     />
   )

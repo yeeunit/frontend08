@@ -1,5 +1,6 @@
 import { DislikeOutlined, LikeOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import React from 'react'
 import ReactPlayer from 'react-player'
 
 export const Wrapper = styled.div`

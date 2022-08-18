@@ -4,8 +4,90 @@ export const Wrapper = styled.div`
   width: 1000px;
   margin: 50px auto;
   background-color: white;
+ 
   /* border-top: 30px solid #2B3856; */
 `;
+
+export const PreviewWrapper = styled.div`
+  width: 1000px;
+  height: 250px;
+  border: 2px solid navy;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin-bottom: 40px;
+`
+export const PreviewItem = styled.div`
+  width: 250px;
+  height: 220px;
+  background-color: #eee;
+  border: 2px solid navy;
+
+`
+export const ListBar = styled.div`
+  width: 1000px;
+  height: 60px;
+  background-color: #eee;
+  padding: 10px;
+  border: 2px solid navy;
+  display: flex;
+  flex-direction: row;
+
+`
+
+export const SearchBtn = styled.div`
+  height: 50px;
+  width: 70px;
+  color: white;
+  background-color: navy;
+  padding:15px;
+`
+
+export const Line = styled.div`
+  height: 2px;
+  width: 1000px;
+  border: 1px solid navy;
+  margin: 20px 0;
+
+`
+export const ContentsWrapper = styled.div`
+  width: 1000px;
+  border: 1px solid navy;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+  padding: 10px;
+
+`
+export const ImgBox = styled.div`
+  width: 180px;
+  height: 180px;
+  border: 1px solid navy;
+
+`
+
+export const DetailsWrap = styled.div`
+  width: 600px;
+  height: 180px;
+  padding: 10px;
+  border: 1px solid navy;
+`
+export const Title = styled.div`
+  font-size: 22px;
+  font-weight: 700;
+`
+
+export const PriceWrap = styled.div`
+  width: 180px;
+  height: 180px;
+  border: 1px solid navy;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 180px;
+`
+
 
 export const Table = styled.div`
   width: 900px;
@@ -51,10 +133,6 @@ export const ColumnHeaderBasic = styled.div`
   
 `;
 
-// export const ColumnHeaderTitle = styled.div`
-//   width: 20%;
-//   text-align: center;
-// `;
 
 export const ColumnBasic = styled.div`
   width: 20%;
@@ -62,19 +140,8 @@ export const ColumnBasic = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  
 
 `;
-
-// export const ColumnTitle = styled.div`
-//   width: 30%;
-//   text-align: center;
-//   text-overflow: ellipsis;
-//   overflow: hidden;
-//   white-space: nowrap;  
-//   padding-right:20px;
-  
-// `;
 
 export const Footer = styled.div`
   display: flex;
@@ -88,14 +155,13 @@ export const Footer = styled.div`
 export const Button = styled.div`
   width: 110px;
   height: 40px;
-  background-color: white;
-  color:  #2B3856;
+  background-color: #2B3856;
+  color:  white;
   font-family: "Jua";
   font-size: 16px;
   border: none;
   text-align: center;
   line-height: 40px;
-    /* border-radius: 35px; */
 
   cursor: pointer;
   :hover {

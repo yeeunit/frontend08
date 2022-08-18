@@ -39,5 +39,10 @@ export const Login = styled.div`
 
 `
 
+export const User = styled.span`
+    font-size: 30px;
+    color: beige;
+`
+
 
 //  #E9CFEC;

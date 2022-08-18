@@ -24,9 +24,10 @@ export const MenuItem = styled.div`
   width: 150px;
   height: 40px;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 40px;
+  font-family: "Jua";
 
   cursor: pointer;
 

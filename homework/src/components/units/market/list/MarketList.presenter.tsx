@@ -1,9 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { getDate } from "../../../../commons/libraries/utils";
 import Paginations from "../../../commons/paginations/01/Paginations01.container";
+import Searchbars02 from "../../../commons/searchbars/02/Searchbars02.container";
 import * as L from "./MarketList.styles"
-import { IBoardListUIProps } from "./MarketList.types";
-import { v4 as uuidv4 } from "uuid";
 
 
 export default function MarketListUI(props){
@@ -11,88 +9,50 @@ export default function MarketListUI(props){
   return (
     <>
     <L.Wrapper>
-      <L.Table>
-        <L.TableTop>
-          <L.ColumnHeaderBasic>Name</L.ColumnHeaderBasic>
-          <L.ColumnHeaderBasic>Title</L.ColumnHeaderBasic>
-          <L.ColumnHeaderBasic>Writer</L.ColumnHeaderBasic>
-          <L.ColumnHeaderBasic>Date</L.ColumnHeaderBasic>
-          
-          <L.ColumnHeaderBasic>Basket</L.ColumnHeaderBasic>
+    <h2>베스트 상품</h2>
+    <L.PreviewWrapper>
+    <L.PreviewItem></L.PreviewItem>
+    <L.PreviewItem></L.PreviewItem>
+    <L.PreviewItem></L.PreviewItem>
+    </L.PreviewWrapper>
 
-        </L.TableTop>
+    <L.ListBar>
+      <span>판매중 상품 </span>
+      <span>판매된 상품 </span>
 
-        {props.data?.fetchBoards.map((el) => (
-          
-          <L.Row key={el._id}>
+      <Searchbars02
+        refetch={props.refetch}
+        refetchBoardsCount={props.refetchBoardsCount}
+        onChangeKeyword={props.onChangeKeyword}
+      />
+      <L.SearchBtn>검색</L.SearchBtn>
+    </L.ListBar>
 
-            <L.ColumnBasic  onClick={props.onClickMoveToBoardDetail}>
-              {String(el._id).slice(-4).toUpperCase()}
-            </L.ColumnBasic>
+      <L.Line></L.Line>
 
+      <L.ContentsWrapper>
 
-            <L.ColumnBasic id={el._id} onClick={props.onClickMoveToBoardDetail}>
-              {/* {el.title} */}
-              {el.title
-                .replaceAll(props.keyword, `###${props.keyword}###`)
-                .split("###")
-                .map(el => (
-                    <span key={uuidv4()} style={{ color: props.keyword === el ? "tomato" : "navy"}}>
-                      {el}
-                      </span>
-            ))}
-            </L.ColumnBasic>
+          <L.ImgBox>이미지</L.ImgBox>
+          <L.DetailsWrap>
 
+            <L.Title>상품명</L.Title>
+            <div>요약</div>
+            <div>태그</div>
+            <div>판매자</div>
+            <div>좋아요</div>
 
-            <L.ColumnBasic  onClick={props.onClickMoveToBoardDetail} >
-              {el.writer}
-            </L.ColumnBasic>
+          </L.DetailsWrap>
+          <L.PriceWrap>가격</L.PriceWrap>
 
-            <L.ColumnBasic  onClick={props.onClickMoveToBoardDetail}>
-            {getDate(el.createdAt)}
-
-            </L.ColumnBasic>
-
-            <button onClick={props.onClickBasket(el)}>게시물 담기</button>
-
-          </L.Row>
-          //id={el._id} 없으면 페이지 안넘어감..왜필요하지??
-            )
-          )
-        }
+      </L.ContentsWrapper>
+    
+     
 
 
-        <L.Footer>
-          <Paginations refetch={props.refetch} onClick={props.onClickPage} count={props.count}/>
-
-          {/* {new Array(10).fill(1).map((_, index) => (
-                <Paginations key={index + 1} id={String(index + 1)} onClick={props.onClickPage}>
-                    {index + 1}
-                </Paginations>
-            ))} */}
-
-
-        
-          <L.Search>
-          
-          <input refetch={props.refetch}
-        refetchBoardsCount={props.refetchBoardsCount} type="text" onChange={props.onChangeSearch}/>
-
-          <SearchOutlined style={{width:"50px"}} /> 
-          
-          </L.Search>
-
-          <L.Button onClick={props.onClickMoveToBoardNew}>
-            새글 작성하기
-          </L.Button>
-          <L.Button onClick={props.onClickMove}>
-            장바구니
+          <L.Button>
+            상품 등록하기
           </L.Button>
 
-
-        </L.Footer>
-
-        </L.Table>
     </L.Wrapper>
     </>
   );

@@ -1,3 +1,4 @@
+import KakaoMap from '../../kakaoMap'
 import * as M from './MarketWrite.styles'
 
 export default function MarketWriteUI(props){
@@ -8,7 +9,7 @@ export default function MarketWriteUI(props){
     <M.Title> 상품 등록하기</M.Title>
 
 
-  <M.InputWrapper>
+  {/* <M.InputWrapper> */}
     <M.Label> 상품명 </M.Label>
     <M.Input 
     id="name"
@@ -16,7 +17,7 @@ export default function MarketWriteUI(props){
     placeholder="상품명을 적어주세요."
     onChange={props.onChangeInputs}
     />
-  </M.InputWrapper>
+  {/* </M.InputWrapper> */}
 
 
     <M.Label> 한줄요약 </M.Label>
@@ -46,10 +47,14 @@ export default function MarketWriteUI(props){
 
 
     <M.Label> 태그입력 </M.Label>
-    <M.Input type="text" />
+    <M.Input 
+    id="tag"
+    type="text"
+    placeholder="#tag #태그"/>
 
     <M.Label> 거래위치 </M.Label>
-    <M.Input type="text" />
+    {/* <M.Input type="text" /> */}
+    <KakaoMap></KakaoMap>
 
     <M.Label> GPS </M.Label>
     <M.Input type="text" />

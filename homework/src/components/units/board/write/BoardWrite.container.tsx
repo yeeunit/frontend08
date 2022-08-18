@@ -88,6 +88,8 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }, [props.data]);
 
+  
+
   const onClickSubmit = async () => {
     const errors = {
       writer: "작성자를 입력해주세요.",

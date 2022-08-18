@@ -1,129 +1,39 @@
-import { useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
-import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
-import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 import {
-  CREATE_BOARD_COMMENT,
-  UPDATE_BOARD_COMMENT,
-} from "./BoardCommentWrite.queries";
-import {
-  IMutation,
-  IMutationCreateBoardCommentArgs,
-  IMutationUpdateBoardCommentArgs,
+  IQuery,
+  IQueryFetchBoardCommentsArgs,
 } from "../../../../commons/types/generated/types";
-import {
-  IBoardCommentWriteProps,
-  IUpdateBoardCommentInput,
-} from "./BoardCommentWrite.types";
+import BoardCommentListUI from "./BoardCommentList.presenter";
+import { FETCH_BOARD_COMMENTS } from "./BoardCommentList.queries";
 
-export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
+export default function BoardCommentList() {
   const router = useRouter();
-  const [writer, setWriter] = useState("");
-  const [password, setPassword] = useState("");
-  const [contents, setContents] = useState("");
-  const [star, setStar] = useState(0);
 
-  const [createBoardComment] = useMutation<
-    Pick<IMutation, "createBoardComment">,
-    IMutationCreateBoardCommentArgs
-  >(CREATE_BOARD_COMMENT);
+  const { data, fetchMore } = useQuery<
+    Pick<IQuery, "fetchBoardComments">,
+    IQueryFetchBoardCommentsArgs
+  >(FETCH_BOARD_COMMENTS, {
+    variables: { boardId: String(router.query.boardId) },
+  });
 
-  const [updateBoardComment] = useMutation<
-    Pick<IMutation, "updateBoardComment">,
-    IMutationUpdateBoardCommentArgs
-  >(UPDATE_BOARD_COMMENT);
+  const onLoadMore = () => {
+    if (!data) return;
 
-  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
-    setWriter(event.target.value);
+    fetchMore({
+      variables: { page: Math.ceil(data?.fetchBoardComments.length / 10) + 1 },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult?.fetchBoardComments)
+          return { fetchBoardComments: [...prev.fetchBoardComments] };
+        return {
+          fetchBoardComments: [
+            ...prev.fetchBoardComments,
+            ...fetchMoreResult.fetchBoardComments,
+          ],
+        };
+      },
+    });
   };
 
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-
-  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setContents(event.target.value);
-  };
-
-  const onClickWrite = async () => {
-    if (typeof router.query.boardId !== "string") return;
-
-    try {
-      await createBoardComment({
-        variables: {
-          createBoardCommentInput: {
-            writer,
-            password,
-            contents,
-            rating: star,
-          },
-          boardId: router.query.boardId,
-        },
-        refetchQueries: [
-          {
-            query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId },
-          },
-        ],
-      });
-    } catch (error) {
-      if (error instanceof Error) alert(error.message);
-    }
-
-    setWriter("");
-    setPassword("");
-    setContents("");
-  };
-
-  const onClickUpdate = async () => {
-    if (!contents) {
-      alert("내용이 수정되지 않았습니다.");
-      return;
-    }
-    if (!password) {
-      alert("비밀번호가 입력되지 않았습니다.");
-      return;
-    }
-
-    try {
-      const updateBoardCommentInput: IUpdateBoardCommentInput = {};
-      if (contents) updateBoardCommentInput.contents = contents;
-      if (star !== props.el?.rating) updateBoardCommentInput.rating = star;
-
-      if (typeof props.el?._id !== "string") return;
-      await updateBoardComment({
-        variables: {
-          updateBoardCommentInput,
-          password,
-          boardCommentId: props.el?._id,
-        },
-        refetchQueries: [
-          {
-            query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId },
-          },
-        ],
-      });
-      props.setIsEdit?.(false);
-    } catch (error) {
-      if (error instanceof Error) alert(error.message);
-    }
-  };
-
-  return (
-    <BoardCommentWriteUI
-      onChangeWriter={onChangeWriter}
-      onChangePassword={onChangePassword}
-      onChangeContents={onChangeContents}
-      onClickWrite={onClickWrite}
-      onClickUpdate={onClickUpdate}
-      writer={writer}
-      password={password}
-      contents={contents}
-      setStar={setStar}
-      isEdit={props.isEdit}
-      el={props.el}
-    />
-  );
+  return <BoardCommentListUI data={data} onLoadMore={onLoadMore} />;
 }

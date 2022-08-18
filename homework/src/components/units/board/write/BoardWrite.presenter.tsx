@@ -3,13 +3,15 @@
 import * as W from "./BoardWrite.styles";
 import { IBoardWriteProps } from "./BoardWrite.types";
 import { v4 as uuidv4 } from "uuid";
-import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
+import Uploads01 from "../../uploads/01/Uploads01.container";
 import Link from "next/link";
 
 
 // import "react-quill/dist/quill.snow.css";
 // import dynamic from "next/dynamic";
 // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
+
 
 
 export default function BoardWriteUI(props: IBoardWriteProps){
@@ -112,14 +114,17 @@ export default function BoardWriteUI(props: IBoardWriteProps){
           />
         </W.InputWrapper>
 
+
+
         <W.ImageWrapper>
           <W.Label>사진첨부</W.Label>
           {props.fileUrls.map((el, index) => (
             <Uploads01
-              key={uuidv4()}
+              key={uuidv4()} 
               index={index}
               fileUrl={el}
               onChangeFileUrls={props.onChangeFileUrls}
+              //defaultFileUrl={props.data?fetchBoard.fileUrls || ""}
             />
           ))}
           

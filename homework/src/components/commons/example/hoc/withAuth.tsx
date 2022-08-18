@@ -14,7 +14,7 @@ const router = useRouter()
 useEffect(() => {
     if(!localStorage.getItem("accessToken")){
         alert("로그인후 이용가능함여~")
-        router.push("/quiz0804/example/hoc/main")
+        router.push("/boards/login")
     }
 }, [])
 

@@ -1,31 +1,27 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { IQuery, IQueryFetchBoardArgs } from "../../../../src/commons/types/generated/types";
-import BoardWrite from "../../../../src/components/units/board/write/BoardWrite.container"
+import { IQuery, IQueryFetchUseditemArgs } from "../../../../../src/commons/types/generated/types";
 
-const FETCH_BOARD = gql`
-  query fetchBoard($boardId: ID!) {
-    fetchBoard(boardId: $boardId) {
-      writer
-      title
+export const FETCH_USEDITEM= gql`
+query fetchUseditem($useditemId: ID!) {
+  fetchUseditem(useditemId: $useditemId) {
+      _id
+      name
+      remarks
       contents
-      youtubeUrl
-      boardAddress {
-        zipcode
-        address
-        addressDetail
-      }
+      price
+      images
     }
   }
-`;
+`
 
 
 export default function BoardsEditPage() {
   const router = useRouter();
-  const { data } = useQuery<Pick<IQuery, "fetchBoard">, 
-  IQueryFetchBoardArgs> 
-  (FETCH_BOARD, { variables: { boardId: String(router.query.boardId) },
+  const { data } = useQuery<Pick<IQuery, "fetchUseditm">, 
+  IQueryFetchUseditemArgs> 
+  (FETCH_USEDITEM, { variables: { boardId: String(router.query.boardId) },
   });
 
-  return <BoardWrite isEdit={true} data={data} />;
+  return <MarketWrite isEdit={true} data={data} />;
 }
