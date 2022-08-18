@@ -35,7 +35,6 @@ export const WriterWrapper = styled.div`
 
 `;
 
-
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,28 +62,10 @@ export const Input = styled.input`
 
 `;
 
+// export const Reactquill = styled(Reactquill)`
+//   width:700px;
 
-
-
-export const Password = styled.input`
-  width: 388px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
-  background-color: #eee;
-
-`;
-
-
-
-export const Subject = styled.input`
-  width: 800px;
-  height: 52px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
-  background-color: #eee;
-
-`;
+// `
 
 export const Contents = styled.textarea`
   width: 800px;
@@ -95,6 +76,35 @@ export const Contents = styled.textarea`
   background-color: #eee;
 
 `;
+
+export const MapWrapper = styled.div`
+  width: 800px;
+  /* border: 1px solid #bdbdbd; */
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin-bottom: 20px;
+
+`;
+
+
+export const KakaoMap = styled.div`
+  width: 400px;
+  /* border: 1px solid #bdbdbd; */
+  display: flex;
+  flex-direction: column;
+`;
+
+
+export const AddressWrapper = styled.div`
+  width: 400px;
+  padding: 10px;
+  /* border: 1px solid #bdbdbd; */
+  display: flex;
+  flex-direction: column;
+
+`;
+
 
 export const ZipcodeWrapper = styled.div`
   display: flex;
@@ -107,7 +117,7 @@ export const Zipcode = styled.input`
   width: 77px;
   height: 52px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  /* border: 1px solid #bdbdbd; */
   background-color: #eee;
 
 `;
@@ -123,8 +133,18 @@ export const SearchButton = styled.button`
 `;
 
 export const Address = styled.input`
-  width: 800px;
-  height: 52px;
+  width: 300px;
+  height: 50px;
+  margin-top: 16px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
+  background-color: #eee;
+`;
+
+
+export const LAT_LNG = styled.input`
+  width: 200px;
+  height: 50px;
   margin-top: 16px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
@@ -134,7 +154,11 @@ export const Address = styled.input`
 
 export const ImageWrapper = styled.div`
   width: 800px;
-  padding-top: 40px;
+  padding-right:500px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+
 `;
 
 export const UploadButton = styled.button`
@@ -194,10 +218,6 @@ export const Error = styled.div`
   color: tomato;
   font-family: none;
 `;
-
-
-
-
 
 
 export const AddressModal = styled(Modal)`

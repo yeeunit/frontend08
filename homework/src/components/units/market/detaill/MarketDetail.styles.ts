@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   width: 1000px;
   margin-top: 100px auto;
   background-color: white;
+  border: 1px solid #ddd;
+
 `;
 
 export const CardWrapper = styled.div`
@@ -61,30 +63,35 @@ export const CreatedAt = styled.div`
 export const Body = styled.div`
   width: 100%;
   min-height: 800px;
+  border: 1px solid #ddd;
 `;
 
 export const Title = styled.h1`
   padding-top: 80px;
+  border: 1px solid #ddd;
+
 `;
 
 export const Contents = styled.div`
   padding-top: 40px;
   padding-bottom: 50px;
+  border: 1px solid #ccc;
 `;
 
 
 export const ImageWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  /* border: 1px solid navy; */
+
 `;
 
 export const Image = styled.img`
   width: 200px;
   height: 200px;
-  margin-bottom: 30px;
+  margin: 30px;
 `;
-
-
 export const BottomWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -95,7 +102,7 @@ export const BottomWrapper = styled.div`
 export const Button = styled.button`
   width: 120px;
   height: 45px;
-  
+  margin: 20px;
   background-color: white;
 
   color:  #2B3856;

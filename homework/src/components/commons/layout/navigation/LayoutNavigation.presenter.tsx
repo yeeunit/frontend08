@@ -6,8 +6,8 @@ const NAVIGATION_MENUS = [
     // { name: "나의파이어베이스", page: "/myfirebase" },
     // { name: "라이브강아지", page: "/openapis" },
 
-    { name: "Freeboard", page: "/boards/new" },
-    { name: "Market", page: "/boards/market" },
+    { name: "자유게시판", page: "/boards" },
+    { name: "중고마켓", page: "/boards/market" },
     { name: "Mypage", page: "/" },
 
     // { name: "MAIN", page: "/" },

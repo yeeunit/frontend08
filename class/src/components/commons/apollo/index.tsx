@@ -60,13 +60,13 @@ export default function ApolloSetting(props: IApolloSettingProps){
   }, [])
 
 
-  const errorLink = onError(( {graphQLErros, operation, forward }) => {
+  const errorLink = onError(( {graphQLErrors, operation, forward }) => {
 
     // 1-1. 에러를 캐치 
-    if(graphQLErros){
-      for(const err of graphQLErros){
+    if(graphQLErrors){
+      for(const err of graphQLErrors){
         // 1-2. 해당 에러가 토큰 만료 에러인지 체크(UNATHENTICATED)
-          if( err.extensions.code === "UNATHENTICATED"){
+          if( err.extensions.code === "UNAUTHENTICATED"){
 
             return fromPromise(
 

@@ -3,13 +3,13 @@ import styled from "@emotion/styled";
 
 export const Searchbar = styled.div`
   width: 300px;
-  height: 50px;
+  height: 40px;
   border-radius: 5px;
-  background-color: #eee;
+  background-color: #ddd;
   padding: 0px 10px;
   display: flex;
   flex-direction: row;
-  border: 1px solid navy;
+  /* border: 1px solid navy; */
 
 `;
 

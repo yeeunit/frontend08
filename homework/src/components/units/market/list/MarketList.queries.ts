@@ -9,6 +9,12 @@ query fetchUseditems($isSoldout: Boolean, $search: String, $page: Int) {
       contents
       price
       images
+      tags
+      # seller{
+      #   name
+      # }
+      createdAt
+      pickedCount
     }
   }
 `

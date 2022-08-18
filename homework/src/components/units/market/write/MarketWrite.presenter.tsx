@@ -1,8 +1,21 @@
 import KakaoMap from '../../kakaoMap'
+import Uploads02 from '../../uploads/02/Uploads02.container'
 import * as M from './MarketWrite.styles'
+import { v4 as uuidv4 } from "uuid";
+
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+import { Contents } from '../../board/detail/BoardDetail.styles';
+import { PropertySafetyFilled } from '@ant-design/icons';
+
+
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
 
 export default function MarketWriteUI(props){
-
+  
+ 
   return(
     <>
     <M.Wrapper>
@@ -29,13 +42,18 @@ export default function MarketWriteUI(props){
     />
 
 
+
+
     <M.Label> 상품설명 </M.Label>
-    <M.Input 
+    {/* <M.Input 
     id="contents"
     type="text"
     placeholder="내용을 입력해주세요"
-    onChange={props.onChangeInputs} />
+    onChange={props.onChangeInputs} /> */}
     {/* <ReactQuill onChange={props.onChangeContents} /> */}
+
+    <ReactQuill id="contents" style={{width: "770px", height: "200px"}} onChange={props.onChangeContents} />
+
     
 
     <M.Label> 판매가격 </M.Label>
@@ -52,18 +70,36 @@ export default function MarketWriteUI(props){
     type="text"
     placeholder="#tag #태그"/>
 
-    <M.Label> 거래위치 </M.Label>
-    {/* <M.Input type="text" /> */}
-    <KakaoMap></KakaoMap>
+    <M.MapWrapper>
+        <M.KakaoMap>
+            <M.Label> 거래위치 </M.Label>
+            <KakaoMap></KakaoMap>
+        </M.KakaoMap>
 
-    <M.Label> GPS </M.Label>
-    <M.Input type="text" />
+    <M.AddressWrapper>
+      <M.Label> GPS </M.Label>
+          <M.LAT_LNG type="text" />
+          <M.LAT_LNG type="text" />
 
-    <M.Label> 주소 </M.Label>
-    <M.Input type="text" />
+      <M.Label> 주소 </M.Label>
+        <M.Address type="text" />
+    </M.AddressWrapper>
+
+    </M.MapWrapper>
+
 
     <M.Label> 사진첨부 </M.Label>
-    <M.Input type="text" />
+      
+      <M.ImageWrapper>
+        {props.fileUrls.map((el, index) => (
+                <Uploads02
+                  key={uuidv4()}
+                  index={index}
+                  fileUrl={el}
+                  onChangeFileUrls={props.onChangeFileUrls}
+                />
+              ))}
+      </M.ImageWrapper>
 
 
     <M.SubmitButton

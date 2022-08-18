@@ -1,31 +1,23 @@
 import { gql } from "@apollo/client";
 
 
-export const FETCH_BOARDS = gql`
-    query fetchBoards {
-        fetchBoards {
-            _id
-            writer
-            title
-            contents
-        }
-    }
-`
 
-
-export const DELETE_BOARD = gql`
-    mutation deleteBoard($boardId: ID!) {
-        deleteBoard(boardId: $boardId)
-    }
-`
-
-const CREATE_BOARD = gql`
-  mutation createBoard($createBoardInput: CreateBoardInput!) {
-    createBoard(createBoardInput: $createBoardInput) {
+export const FETCH_USEDITEMS = gql`
+query fetchUseditems($isSoldout: Boolean, $search: String, $page: Int) {
+  fetchUseditems(isSoldout: $isSoldout, search: $search, page: $page ) {
       _id
-      writer
-      title
+      name
+      remarks
       contents
+      price
+      images
+      tags
+      # seller{
+      #   name
+      # }
+      createdAt
+      pickedCount
     }
   }
-`;
+`
+

@@ -11,17 +11,18 @@ export const Wrapper = styled.div`
 export const PreviewWrapper = styled.div`
   width: 1000px;
   height: 250px;
-  border: 2px solid navy;
+  /* border: 2px solid navy; */
   display: flex;
   flex-direction: row;
   padding: 10px;
-  margin-bottom: 40px;
+  margin: 20px 0;
+  background-color: #eee;
 `
 export const PreviewItem = styled.div`
-  width: 250px;
+  width: 200px;
   height: 220px;
-  background-color: #eee;
-  border: 2px solid navy;
+  background-color: #ddd;
+  /* border: 2px solid navy; */
 
 `
 export const ListBar = styled.div`
@@ -29,41 +30,48 @@ export const ListBar = styled.div`
   height: 60px;
   background-color: #eee;
   padding: 10px;
-  border: 2px solid navy;
+  /* border: 2px solid navy; */
   display: flex;
   flex-direction: row;
 
 `
 
 export const SearchBtn = styled.div`
-  height: 50px;
-  width: 70px;
+  height: 40px;
+  width: 60px;
   color: white;
-  background-color: navy;
+  background-color: #bbb;
   padding:15px;
 `
 
 export const Line = styled.div`
   height: 2px;
   width: 1000px;
-  border: 1px solid navy;
+  border: 1px solid #ccc;
   margin: 20px 0;
 
 `
 export const ContentsWrapper = styled.div`
   width: 1000px;
-  border: 1px solid navy;
+  /* border: 1px solid navy; */
   margin: 20px 0;
   display: flex;
   flex-direction: row;
-  background-color: aliceblue;
+  background-color: #bbb;
   padding: 10px;
+
+  :hover{cursor: pointer;}
 
 `
 export const ImgBox = styled.div`
-  width: 180px;
+  width: 160px;
   height: 180px;
-  border: 1px solid navy;
+  /* border: 1px solid navy; */
+  background-color: #ccc;
+`
+export const Img = styled.img`
+ width: 160px;
+  height: 180px;
 
 `
 
@@ -71,7 +79,9 @@ export const DetailsWrap = styled.div`
   width: 600px;
   height: 180px;
   padding: 10px;
-  border: 1px solid navy;
+  background-color: #ddd;
+
+  /* border: 1px solid navy; */
 `
 export const Title = styled.div`
   font-size: 22px;
@@ -81,11 +91,13 @@ export const Title = styled.div`
 export const PriceWrap = styled.div`
   width: 180px;
   height: 180px;
-  border: 1px solid navy;
+  /* border: 1px solid navy; */
   text-align: center;
   font-size: 20px;
   font-weight: 600;
   line-height: 180px;
+  background-color: #eee;
+
 `
 
 
