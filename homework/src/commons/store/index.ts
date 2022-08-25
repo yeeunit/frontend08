@@ -7,8 +7,8 @@ export const isEditState = atom({
 
 export const accessTokenState = atom({
   key: "accessTokenState",
-  default:""    
-})
+  default: "",
+});
 
 export const userInfoState = atom({
   key: "userInfoState",
@@ -21,4 +21,24 @@ export const userInfoState = atom({
 export const visitedPageState = atom({
   key: "visitedPageState",
   default: "/",
+});
+
+export const isWatchActiveState = atom({
+  key: "isWatchActiveStateKey",
+  default: false,
+});
+
+export const isBucketActiveState = atom({
+  key: "isBucketActiveStateKey",
+  default: false,
+});
+
+export const isLoginStatus = atom({
+  key: "isLoginStatusKey",
+  default: false,
+});
+
+export const errorModalStatus = atom({
+  key: "errorModalStatusKey",
+  default: false,
 });

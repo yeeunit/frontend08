@@ -4,12 +4,13 @@ export const globalStyles = css`
   * {
     margin: 0px auto;
     box-sizing: border-box;
+    font-family: "Jua";
   }
 
   body {
     padding: 0;
     margin: 0;
-    background-color: #FFEFD5;
+    background-color: #ffefd5;
   }
 
   a {
@@ -17,10 +18,8 @@ export const globalStyles = css`
     text-decoration: none;
   }
 
-
   @font-face {
-  font-family: "Jua";
-  src: url("/fonts/Jua-Regular.ttf");
-}
-
+    font-family: "Jua";
+    src: url("/fonts/Jua-Regular.ttf");
+  }
 `;

@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   margin-top: 100px auto;
   background-color: white;
   border: 1px solid #ddd;
-
 `;
 
 export const CardWrapper = styled.div`
@@ -18,7 +17,7 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  
+
   /* border: 7px solid #2B3856; */
   /* box-shadow: 0px 0px 10px gray; */
 `;
@@ -38,7 +37,6 @@ export const Avatar = styled.img`
   margin-right: 10px;
 `;
 
-
 export const AvatarWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -46,18 +44,18 @@ export const AvatarWrapper = styled.div`
 
 export const Info = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* border: 1px solid red; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
 `;
 
 export const Writer = styled.div`
-  color:  #2B3856;
-  font-family: "Jua";
-  font-size: 18px;
+  color: #2b3856;
+  font-size: 22px;
 `;
 
 export const CreatedAt = styled.div`
-/* color: rebeccapurple; */
+  color: #2b3856;
 `;
 
 export const Body = styled.div`
@@ -66,31 +64,49 @@ export const Body = styled.div`
   border: 1px solid #ddd;
 `;
 
-export const Title = styled.h1`
-  padding-top: 80px;
-  border: 1px solid #ddd;
+export const Title = styled.div`
+  width: 100%;
+  padding: 30px;
+  /* border: 1px solid red; */
+`;
 
+export const Price = styled.span`
+  font-weight: 500;
+  font-size: 33px;
 `;
 
 export const Contents = styled.div`
   padding-top: 40px;
-  padding-bottom: 50px;
+  padding: 30px;
   border: 1px solid #ccc;
 `;
-
+export const Tags = styled.div`
+  width: 100px;
+  height: 30px;
+  background: #ffe004;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+`;
 
 export const ImageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   /* border: 1px solid navy; */
-
 `;
 
 export const Image = styled.img`
   width: 200px;
   height: 200px;
   margin: 30px;
+`;
+
+export const MapWrap = styled.div`
+  width: 792px;
+  height: 360px;
+  background-color: #eee;
 `;
 export const BottomWrapper = styled.div`
   display: flex;
@@ -105,20 +121,20 @@ export const Button = styled.button`
   margin: 20px;
   background-color: white;
 
-  color:  #2B3856;
+  color: #2b3856;
   font-family: "Jua";
   font-size: 18px;
   border: none;
   text-align: center;
   line-height: 40px;
 
-    /* border-radius: 35px; */
+  /* border-radius: 35px; */
 
   cursor: pointer;
 
   :hover {
-  color : #f5f2fc;
-    background-color: #2B3856;
+    color: #f5f2fc;
+    background-color: #2b3856;
     /* border-bottom: 2px solid #2B3856;; */
 
     font-weight: 700;

@@ -2,15 +2,15 @@ import { FireFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const Searchbar = styled.div`
-  width: 300px;
+  width: 800px;
   height: 40px;
   border-radius: 5px;
-  background-color: #ddd;
+  /* background-color: steelblue; */
   padding: 0px 10px;
   display: flex;
   flex-direction: row;
-  /* border: 1px solid navy; */
-
+  color: white;
+  border: 2px solid #ddd;
 `;
 
 export const FireFilledIcon = styled(FireFilled)`
