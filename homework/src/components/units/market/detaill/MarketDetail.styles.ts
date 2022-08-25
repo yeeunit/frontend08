@@ -1,36 +1,33 @@
-import { DislikeOutlined, LikeOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1000px;
-  margin-top: 100px auto;
+  /* margin-top: 100px auto; */
   background-color: white;
   border: 1px solid #ddd;
 `;
 
 export const CardWrapper = styled.div`
-  padding-top: 80px;
-  padding-bottom: 50px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 80px 100px 50px 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: none;
 
   /* border: 7px solid #2B3856; */
   /* box-shadow: 0px 0px 10px gray; */
 `;
 
+export const Heart = styled.div`
+  /* border: 1px solid red; */
+  cursor: pointer;
+`;
 export const Header = styled.div`
-  width: 100%;
-  border-bottom: 1px solid #bdbdbd;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: center;
-  align-items:stretch;
-  border: 1px solid blue; */
+  width: 800px;
+  border: 1px solid #bdbdbd;
+  /* display: flex;
+  flex-direction: row; */
+  justify-content: space-between;
+  padding: 20px;
+  /* border: 1px solid blue; */
 `;
 
 export const Avatar = styled.img`
@@ -40,11 +37,17 @@ export const Avatar = styled.img`
 export const AvatarWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  width: 200px;
+  display: inline-block;
+  /* background-color: pink; */
 `;
 
 export const Info = styled.div`
   display: flex;
   /* border: 1px solid red; */
+  display: inline-block;
+  float: right;
+
   /* flex-direction: column; */
   /* justify-content: center; */
 `;
@@ -52,10 +55,12 @@ export const Info = styled.div`
 export const Writer = styled.div`
   color: #2b3856;
   font-size: 22px;
+  display: inline-block;
 `;
 
 export const CreatedAt = styled.div`
   color: #2b3856;
+  float: right;
 `;
 
 export const Body = styled.div`
@@ -78,22 +83,25 @@ export const Price = styled.span`
 export const Contents = styled.div`
   padding-top: 40px;
   padding: 30px;
+  margin: 20px;
   border: 1px solid #ccc;
+  font-size: 22px;
 `;
-export const Tags = styled.div`
-  width: 100px;
+export const Tags = styled.span`
   height: 30px;
+  padding: 5px 20px;
   background: #ffe004;
   border-radius: 10px;
   text-align: center;
   line-height: 30px;
-  margin-right: 10px;
+  margin: 0 10px;
 `;
 
 export const ImageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 30px;
   /* border: 1px solid navy; */
 `;
 
@@ -106,7 +114,7 @@ export const Image = styled.img`
 export const MapWrap = styled.div`
   width: 792px;
   height: 360px;
-  background-color: #eee;
+  /* background-color: #ddd; */
 `;
 export const BottomWrapper = styled.div`
   display: flex;

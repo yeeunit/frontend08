@@ -12,23 +12,25 @@ interface IKaKaoMapProps {
   height: string;
 }
 
-export default function KaKaoMap(props: IKaKaoMapProps) {
+export default function KaKaoMap(props) {
   useEffect(() => {
     const script = document.createElement("script");
+
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=0ffdae4bb23834370529158b7c4f1304&autoload=false&libraries=services";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=b4231ee4e877b1e937e9152e088001de&libraries=services&autoload=false";
     document.head.appendChild(script);
 
     script.onload = () => {
       window.kakao.maps.load(() => {
         const container = document.getElementById("map");
         const options = {
-          center: new window.kakao.maps.LatLng(37.552426, 126.988761),
+          center: new window.kakao.maps.LatLng(37.485666, 126.90426),
           level: 5,
         };
         const map = new window.kakao.maps.Map(container, options);
 
         const geocoder = new window.kakao.maps.services.Geocoder();
+        console.log(props.address);
 
         geocoder.addressSearch(
           props.address || "",

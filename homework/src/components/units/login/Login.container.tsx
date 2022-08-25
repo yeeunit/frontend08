@@ -52,7 +52,7 @@ export default function LoginWrite() {
     localStorage.setItem("accessToken", accessToken);
     alert("로그인 성공");
     //    router.push("../../../../pages/boards/login/loginSuccess")
-    router.push("../../../../../boards/login/loginSuccess");
+    router.push("/boards/login/loginSuccess");
   };
 
   return (

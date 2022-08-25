@@ -7,7 +7,7 @@ import {
 import { withAuth } from "../../../../../src/components/commons/example/hoc/withAuth";
 import MarketWrite from "../../../../../src/components/units/market/write/MarketWrite.container";
 
-const FETCH_USED_ITEM = gql`
+const FETCH_USEDITEM = gql`
   query fetchUseditem($useditemId: ID!) {
     fetchUseditem(useditemId: $useditemId) {
       _id
@@ -34,9 +34,9 @@ function EditPage() {
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditem">,
     IQueryFetchUseditemArgs
-  >(FETCH_USED_ITEM, {
+  >(FETCH_USEDITEM, {
     variables: {
-      useditemId: router.query.detail as string,
+      useditemId: router.query._id as string,
     },
   });
 

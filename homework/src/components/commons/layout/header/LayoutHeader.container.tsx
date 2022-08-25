@@ -1,52 +1,37 @@
-import { gql, useMutation } from "@apollo/client";
+import { useApolloClient, useMutation } from "@apollo/client";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
-import { isLoginStatus } from "../../../../commons/store";
+import { isBucketActiveState, isLoginStatus } from "../../../../commons/store";
 import {
   IMutation,
   IMutationCreatePointTransactionOfLoadingArgs,
 } from "../../../../commons/types/generated/types";
 import LayoutHeaderUI from "./LayoutHeader.presenter";
+import {
+  CREATE_POINT_TRANSACTION_OF_LOADING,
+  LOGOUT_USER,
+} from "./LayoutHeader.queries";
 
-export const LOGOUT_USER = gql`
-  mutation logoutUser {
-    logoutUser
-  }
-`;
-
-export const FETCH_USER_LOGGED_IN = gql`
-  query fetchUserLoggedIn {
-    fetchUserLoggedIn {
-      _id
-      email
-      name
-      userPoint {
-        _id
-        amount
-      }
-    }
-  }
-`;
-
-export const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
-  mutation createPointTransactionOfLoading($impUid: ID!) {
-    createPointTransactionOfLoading(impUid: $impUid) {
-      _id
-      impUid
-      amount
-      status
-      statusDetail
-    }
-  }
-`;
+declare const window: typeof globalThis & {
+  IMP: any;
+};
 
 export default function LayoutHeader() {
   const router = useRouter();
+  const client = useApolloClient();
+
   const [isLogin, setIsLogin] = useRecoilState(isLoginStatus);
-  const [userInfo, setUserInfo] = useState();
+
   const [isPointOpen, setIsPointOpen] = useState(false);
+
+  const [isBtnActive, setIsBtnActive] = useState(false);
+  const [bucketIsActive, setBucketIsActive] =
+    useRecoilState(isBucketActiveState);
+  const [bucketList, setBucketList] = useState([]);
+  const [userInfo, setUserInfo] = useState();
 
   const [logoutUser] = useMutation<Pick<IMutation, "logoutUser">>(LOGOUT_USER);
 
@@ -55,6 +40,18 @@ export default function LayoutHeader() {
     IMutationCreatePointTransactionOfLoadingArgs
   >(CREATE_POINT_TRANSACTION_OF_LOADING);
 
+  const { register, handleSubmit } = useForm({
+    mode: "onChange",
+  });
+
+  useEffect(() => {
+    const result = JSON.parse(localStorage.getItem("bucketList") || "[]");
+    setBucketList(result);
+  }, [bucketIsActive]);
+
+  const onChangePointPrice = () => {
+    setIsBtnActive(true);
+  };
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
       setIsLogin(true);
@@ -103,8 +100,8 @@ export default function LayoutHeader() {
     setIsPointOpen(true);
   };
 
-  const onClickClosePoint = () => {
-    setIsPointOpen(false);
+  const onClickOpenPointModal = () => {
+    setIsBtnActive(true);
   };
 
   const onClickLogOut = async () => {
@@ -118,6 +115,9 @@ export default function LayoutHeader() {
     } catch (error) {
       alert("로그아웃 실패");
     }
+  };
+  const onClickClosePointModal = () => {
+    setIsPointOpen(false);
   };
 
   const onClickLogo = () => {
@@ -140,14 +140,18 @@ export default function LayoutHeader() {
       </Head>
 
       <LayoutHeaderUI
-        isLogin={isLogin}
         isPointOpen={isPointOpen}
+        isBtnActive={isBtnActive}
+        bucketList={bucketList}
+        isLogin={isLogin}
         userInfo={userInfo}
         onClickLogOut={onClickLogOut}
-        onClickLogo={onClickLogo}
-        onClickOpenPoint={onClickOpenPoint}
-        onClickClosePoint={onClickClosePoint}
+        onClickOpenPointModal={onClickOpenPointModal}
+        onClickClosePointModal={onClickClosePointModal}
+        onChangePointPrice={onChangePointPrice}
         onClickPointSubmit={onClickPointSubmit}
+        handleSubmit={handleSubmit}
+        register={register}
       />
     </>
   );

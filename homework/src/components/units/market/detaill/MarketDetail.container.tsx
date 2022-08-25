@@ -8,21 +8,17 @@ import { isBucketActiveState } from "../../../../commons/store";
 import {
   IMutation,
   IMutationCreatePointTransactionOfBuyingAndSellingArgs,
-  IMutationCreateUseditemQuestionArgs,
   IMutationDeleteUseditemArgs,
   IMutationToggleUseditemPickArgs,
   IQuery,
   IQueryFetchUseditemArgs,
-  IQueryFetchUseditemQuestionsArgs,
 } from "../../../../commons/types/generated/types";
 import { FETCH_USEDITEMS } from "../list/MarketList.queries";
 import MarketDetailUI from "./MarketDetail.presenter";
 import {
   CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING,
-  CREATE_USED_ITEM_QUESTION,
   DELETE_USED_ITEM,
-  FETCH_USED_ITEM,
-  FETCH_USED_ITEM_QUESTION,
+  FETCH_USEDITEM,
   TOGGLE_USED_ITEM_PICK,
 } from "./MarketDetail.queries";
 
@@ -31,12 +27,12 @@ declare const window: typeof globalThis & {
 };
 
 export default function Detail() {
+  const [isActive, setIsActive] = useRecoilState(isBucketActiveState);
+
   const router = useRouter();
 
   const [pickCount, setPickCount] = useState(0);
   const [userInfo, setUserInfo] = useState();
-  const [isActive, setIsActive] = useRecoilState(isBucketActiveState);
-
   const { register, handleSubmit, reset } = useForm({
     mode: "onChange",
   });
@@ -56,42 +52,30 @@ export default function Detail() {
     IMutationCreatePointTransactionOfBuyingAndSellingArgs
   >(CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING);
 
-  const [createUseditemQuestion] = useMutation<
-    Pick<IMutation, "createUseditemQuestion">,
-    IMutationCreateUseditemQuestionArgs
-  >(CREATE_USED_ITEM_QUESTION);
-
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditem">,
     IQueryFetchUseditemArgs
-  >(FETCH_USED_ITEM, {
+  >(FETCH_USEDITEM, {
     variables: {
-      useditemId: router.query.detail as string,
+      useditemId: String(router.query._id),
     },
   });
 
-  const { data: dataUsedItemQuestions } = useQuery<
-    Pick<IQuery, "fetchUseditemQuestions">,
-    IQueryFetchUseditemQuestionsArgs
-  >(FETCH_USED_ITEM_QUESTION, {
-    variables: {
-      useditemId: router.query.detail as string,
-    },
-  });
+  console.log(data);
 
   useEffect(() => {
     setUserInfo(JSON.parse(localStorage.getItem("userInfo") as string));
   }, []);
 
   const onClickUpdate = () => {
-    router.push(`/product/${router.query.detail}/edit`);
+    router.push(`/boards/market/${router.query._id}/edit`);
   };
 
   const onClickDelete = async () => {
     try {
       await deleteUsedItem({
         variables: {
-          useditemId: router.query.detail as string,
+          useditemId: router.query._id as string,
         },
         refetchQueries: [
           {
@@ -99,10 +83,10 @@ export default function Detail() {
           },
         ],
       });
-      router.push("/");
-      message.success("삭제가 완료되었습니다!!");
+      router.push("/boards/market");
+      alert("삭제 완료!");
     } catch (error) {
-      message.error("삭제에 실패했습니다!");
+      alert("삭제 실패!");
     }
   };
 
@@ -110,19 +94,19 @@ export default function Detail() {
     try {
       await toggleUsedItemPick({
         variables: {
-          useditemId: router.query.detail as string,
+          useditemId: router.query._id as string,
         },
         refetchQueries: [
           {
-            query: FETCH_USED_ITEM,
+            query: FETCH_USEDITEM,
             variables: {
-              useditemId: router.query.detail as string,
+              useditemId: router.query._id as string,
             },
           },
         ],
       });
     } catch (error) {
-      message.success("찜 실패!!!!");
+      alert("찜실패");
     }
   };
 
@@ -157,35 +141,10 @@ export default function Detail() {
       } catch (error) {}
     };
 
-  const onClickCommentCreate = async (data: any) => {
-    try {
-      await createUseditemQuestion({
-        variables: {
-          useditemId: router.query.detail as string,
-          createUseditemQuestionInput: {
-            contents: data.contents,
-          },
-        },
-        refetchQueries: [
-          {
-            query: FETCH_USED_ITEM_QUESTION,
-            variables: {
-              useditemId: router.query.detail as string,
-            },
-          },
-        ],
-      });
-      reset({
-        contents: "",
-      });
-    } catch (error) {}
-  };
-
   return (
     <MarketDetailUI
       data={data}
-      dataUsedItemQuestions={dataUsedItemQuestions}
-      useditemId={router.query.detail as string}
+      useditemId={router.query._id as string}
       pickCount={pickCount}
       userInfo={userInfo}
       onClickBucket={onClickBucket}
@@ -193,7 +152,6 @@ export default function Detail() {
       onClickUpdate={onClickUpdate}
       onClickDelete={onClickDelete}
       onClickBuy={onClickBuy}
-      onClickCommentCreate={onClickCommentCreate}
       handleSubmit={handleSubmit}
       register={register}
     />

@@ -1,12 +1,19 @@
 import styled from "@emotion/styled";
 
+export const Wrapper = styled.input`
+  width: 100%;
+  padding: 20px;
+  background-color: pink;
+  border: 1px solid #ccc;
+`;
+
 export const CommentWriteWrapper = styled.input`
   width: 100%;
   margin-top: 30px;
   height: 150px;
   padding: 20px;
-  background-color: #fff;
-  border: none;
+  background-color: #ddd;
+  border: 1px solid #ccc;
 `;
 
 export const AskBtn = styled.div`

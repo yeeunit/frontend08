@@ -46,19 +46,19 @@ export default function MarketList() {
       },
     });
   };
-  const onClickMoveToMarketDetail =
-    (el: any) => (event: MouseEvent<HTMLElement>) => {
-      router.push(`/boards/market/${el._id}`);
-      const watchList = JSON.parse(sessionStorage.getItem("watchList") || "[]");
+  const onClickMoveToMarketDetail = (el: any) => () => {
+    router.push(`/boards/market/${el._id}`);
+    const watchList = JSON.parse(sessionStorage.getItem("watchList") || "[]");
 
-      const temp = watchList.filter((data: any) => data._id === el._id);
-      if (temp.length === 1) {
-        return;
-      }
-      setIsActive((prev) => !prev);
-      watchList.push(el);
-      sessionStorage.setItem("watchList", JSON.stringify(watchList));
-    };
+    const temp = watchList.filter((data: any) => data._id === el._id);
+    if (temp.length === 1) {
+      return;
+    }
+    setIsActive((prev) => !prev);
+    const { __typename, ...newWatchList } = el;
+    watchList.push(newWatchList);
+    sessionStorage.setItem("watchList", JSON.stringify(watchList));
+  };
 
   return (
     <MarketListUI

@@ -75,9 +75,8 @@ export const ContentsWrapper = styled.div`
 export const ImgBox = styled.div`
   width: 200px;
   height: 180px;
-  padding: 20px;
   border: 1px solid navy;
-  background-color: red;
+  /* background-color: red; */
 `;
 export const Img = styled.img`
   width: 200px;

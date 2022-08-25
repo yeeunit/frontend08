@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const FETCH_USED_ITEM = gql`
+export const FETCH_USEDITEM = gql`
   query fetchUseditem($useditemId: ID!) {
     fetchUseditem(useditemId: $useditemId) {
       _id
@@ -16,8 +16,8 @@ export const FETCH_USED_ITEM = gql`
         address
         addressDetail
       }
+      createdAt
       seller {
-        _id
         email
         name
       }
@@ -49,31 +49,31 @@ export const CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING = gql`
   }
 `;
 
-export const CREATE_USED_ITEM_QUESTION = gql`
-  mutation createUseditemQuestion(
-    $createUseditemQuestionInput: CreateUseditemQuestionInput!
-    $useditemId: ID!
-  ) {
-    createUseditemQuestion(
-      createUseditemQuestionInput: $createUseditemQuestionInput
-      useditemId: $useditemId
-    ) {
-      _id
-      contents
-    }
-  }
-`;
+// export const CREATE_USED_ITEM_QUESTION = gql`
+//   mutation createUseditemQuestion(
+//     $createUseditemQuestionInput: CreateUseditemQuestionInput!
+//     $useditemId: ID!
+//   ) {
+//     createUseditemQuestion(
+//       createUseditemQuestionInput: $createUseditemQuestionInput
+//       useditemId: $useditemId
+//     ) {
+//       _id
+//       contents
+//     }
+//   }
+// `;
 
-export const FETCH_USED_ITEM_QUESTION = gql`
-  query fetchUseditemQuestions($useditemId: ID!) {
-    fetchUseditemQuestions(useditemId: $useditemId) {
-      _id
-      contents
-      user {
-        _id
-        name
-      }
-      createdAt
-    }
-  }
-`;
+// export const FETCH_USED_ITEM_QUESTION = gql`
+//   query fetchUseditemQuestions($useditemId: ID!) {
+//     fetchUseditemQuestions(useditemId: $useditemId) {
+//       _id
+//       contents
+//       user {
+//         _id
+//         name
+//       }
+//       createdAt
+//     }
+//   }
+// `;

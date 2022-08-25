@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { ISubmitButtonProps } from "./MarketWrite.types";
-import DaumPostcodeEmbed from 'react-daum-postcode';
+import DaumPostcodeEmbed from "react-daum-postcode";
 import { Modal } from "antd";
 
 export const Wrapper = styled.div`
@@ -8,14 +8,14 @@ export const Wrapper = styled.div`
   /* height: 1847px; */
   margin: 50px auto;
   padding: 100px;
-  display: flex;  
+  display: flex;
   flex-direction: column;
   /* border: 7px solid #2B3856; */
   /* box-shadow: 0px 0px 10px gray; */
   background-color: white;
-  color: #2B3856;
+  color: #2b3856;
   font-family: "Jua";
-  border: #2B3856 1px solid;
+  border: #2b3856 1px solid;
 `;
 
 export const Title = styled.div`
@@ -32,7 +32,6 @@ export const WriterWrapper = styled.div`
   justify-content: space-between;
   padding-top: 40px;
   margin: 10px;
-
 `;
 
 export const InputWrapper = styled.div`
@@ -41,15 +40,12 @@ export const InputWrapper = styled.div`
   width: 900px;
   padding: 10px;
   margin: 20px;
-
-
 `;
 
 export const Label = styled.div`
   font-size: 20px;
   font-weight: 600;
   margin: 10px;
-
 `;
 
 export const Input = styled.input`
@@ -59,7 +55,6 @@ export const Input = styled.input`
   border: 1px solid #bdbdbd;
   background-color: #eee;
   margin: 10px;
-
 `;
 
 // export const Reactquill = styled(Reactquill)`
@@ -74,7 +69,6 @@ export const Contents = styled.textarea`
   padding: 14px;
   border: 1px solid #bdbdbd;
   background-color: #eee;
-
 `;
 
 export const MapWrapper = styled.div`
@@ -84,17 +78,14 @@ export const MapWrapper = styled.div`
   flex-direction: row;
   padding: 10px;
   margin-bottom: 20px;
-
 `;
-
 
 export const KakaoMap = styled.div`
   width: 400px;
-  /* border: 1px solid #bdbdbd; */
+  border: 1px solid #bdbdbd;
   display: flex;
   flex-direction: column;
 `;
-
 
 export const AddressWrapper = styled.div`
   width: 400px;
@@ -102,15 +93,12 @@ export const AddressWrapper = styled.div`
   /* border: 1px solid #bdbdbd; */
   display: flex;
   flex-direction: column;
-
 `;
-
 
 export const ZipcodeWrapper = styled.div`
   display: flex;
   flex-direction: row;
   float: left;
-
 `;
 
 export const Zipcode = styled.input`
@@ -119,14 +107,13 @@ export const Zipcode = styled.input`
   padding-left: 16px;
   /* border: 1px solid #bdbdbd; */
   background-color: #eee;
-
 `;
 
-export const SearchButton = styled.button`
+export const SearchButton = styled.div`
   width: 124px;
   height: 52px;
   margin-left: 16px;
-  background-color: #2B3856;
+  background-color: #2b3856;
 
   cursor: pointer;
   color: white;
@@ -141,7 +128,6 @@ export const Address = styled.input`
   background-color: #eee;
 `;
 
-
 export const LAT_LNG = styled.input`
   width: 200px;
   height: 50px;
@@ -151,17 +137,15 @@ export const LAT_LNG = styled.input`
   background-color: #eee;
 `;
 
-
 export const ImageWrapper = styled.div`
   width: 800px;
-  padding-right:500px;
+  padding-right: 500px;
   display: flex;
   flex-direction: row;
   margin-bottom: 50px;
-
 `;
 
-export const UploadButton = styled.button`
+export const UploadButton = styled.div`
   width: 78px;
   height: 78px;
   background-color: #bdbdbd;
@@ -176,7 +160,6 @@ export const OptionWrapper = styled.div`
   padding-top: 40px;
 `;
 
-
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -189,11 +172,11 @@ export const CancelButton = styled.button`
   height: 50px;
   font-size: 18px;
   cursor: pointer;
-  border-radius: 50px ;
+  border-radius: 50px;
   border: none;
   font-family: "Jua";
   background-color: #bdbdbd;
-  color: #2B3856;
+  color: #2b3856;
   margin-left: 15px;
   cursor: pointer;
 `;
@@ -203,14 +186,14 @@ export const SubmitButton = styled.button`
   height: 50px;
   font-size: 18px;
   cursor: pointer;
-  border-radius: 50px ;
+  border-radius: 50px;
   border: none;
   font-family: "Jua";
 
-  background-color: #2B3856;
-  color: ${(props: ISubmitButtonProps) => 
-  props.isActive ? "#FFEFD5" : "white;"};
-`
+  background-color: #2b3856;
+  color: ${(props: ISubmitButtonProps) =>
+    props.isActive ? "#FFEFD5" : "white;"};
+`;
 
 export const Error = styled.div`
   padding-top: 10px;
@@ -219,9 +202,21 @@ export const Error = styled.div`
   font-family: none;
 `;
 
+export const AddressModal = styled(Modal)``;
 
-export const AddressModal = styled(Modal)`
+export const AddressSearchInput = styled(DaumPostcodeEmbed)``;
+
+export const AddressButton = styled.div`
+  width: 125px;
+  height: 50px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  line-height: 50px;
+  text-align: center;
+
+  cursor: pointer;
+  background-color: #2b3856;
 `;
 
-export const AddressSearchInput = styled(DaumPostcodeEmbed)`
-`;
+export const Form = styled.form``;
